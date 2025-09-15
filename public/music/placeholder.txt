@@ -1,0 +1,24 @@
+# Thư mục Music
+
+Thư mục này chứa các file nhạc cho trình phát nhạc. Hãy thay thế các file placeholder bằng file nhạc thực tế:
+
+## Các file nhạc cần có:
+
+### Playlist mặc định:
+- perfect.mp3 - Perfect - Ed Sheeran
+- all-of-me.mp3 - All of Me - John Legend  
+- thinking-out-loud.mp3 - Thinking Out Loud - Ed Sheeran
+- a-thousand-years.mp3 - A Thousand Years - Christina Perri
+- marry-me.mp3 - Marry Me - Train
+
+## Lưu ý:
+- Sử dụng định dạng MP3 để tương thích tốt nhất
+- Tối ưu hóa chất lượng âm thanh (128-192 kbps)
+- Đảm bảo có bản quyền sử dụng nhạc
+- Có thể thay đổi playlist trong file MusicPlayer.js
+
+## Cách tùy chỉnh playlist:
+1. Mở file src/components/MusicPlayer.js
+2. Tìm mảng `playlist` 
+3. Thay đổi thông tin bài hát (title, artist, src, cover)
+4. Thêm/xóa bài hát theo ý muốn

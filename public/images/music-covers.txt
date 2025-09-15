@@ -1,0 +1,17 @@
+# Music Cover Images
+
+Thư mục này chứa các hình ảnh cover cho playlist nhạc:
+
+## Các hình ảnh cover cần có:
+
+- music-cover1.jpg - Cover cho "Perfect - Ed Sheeran" (kích thước khuyến nghị: 300x300px)
+- music-cover2.jpg - Cover cho "All of Me - John Legend" (kích thước khuyến nghị: 300x300px)
+- music-cover3.jpg - Cover cho "Thinking Out Loud - Ed Sheeran" (kích thước khuyến nghị: 300x300px)
+- music-cover4.jpg - Cover cho "A Thousand Years - Christina Perri" (kích thước khuyến nghị: 300x300px)
+- music-cover5.jpg - Cover cho "Marry Me - Train" (kích thước khuyến nghị: 300x300px)
+
+## Lưu ý:
+- Hình ảnh nên có tỷ lệ vuông (1:1)
+- Chất lượng cao, rõ nét
+- Phù hợp với chủ đề cưới hỏi
+- Có thể sử dụng ảnh cặp đôi hoặc ảnh lãng mạn

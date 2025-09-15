@@ -1,0 +1,47 @@
+# Thư mục Images
+
+Thư mục này chứa các hình ảnh cho trang web wedding. Hãy thay thế các file placeholder bằng hình ảnh thực tế:
+
+## Các hình ảnh cần có:
+
+### Hero Background Slideshow:
+- hero-bg1.jpg - Ảnh nền slideshow 1 (kích thước khuyến nghị: 1920x1080px)
+- hero-bg2.jpg - Ảnh nền slideshow 2 (kích thước khuyến nghị: 1920x1080px)
+- hero-bg3.jpg - Ảnh nền slideshow 3 (kích thước khuyến nghị: 1920x1080px)
+- hero-bg4.jpg - Ảnh nền slideshow 4 (kích thước khuyến nghị: 1920x1080px)
+
+### Cặp đôi:
+- groom.jpg - Ảnh chú rể (kích thước khuyến nghị: 600x800px - hình chữ nhật đứng)
+- bride.jpg - Ảnh cô dâu (kích thước khuyến nghị: 600x800px - hình chữ nhật đứng)
+
+### Câu chuyện tình yêu:
+- story1.jpg - Ảnh minh họa cho câu chuyện đầu tiên
+- story2.jpg - Ảnh minh họa cho câu chuyện thứ hai
+- story3.jpg - Ảnh minh họa cho câu chuyện thứ ba
+- story4.jpg - Ảnh minh họa cho câu chuyện thứ tư
+
+### Phù dâu & Phù rể:
+- bridesmaid1.jpg - Ảnh phù dâu 1 (kích thước khuyến nghị: 300x300px)
+- bridesmaid2.jpg - Ảnh phù dâu 2 (kích thước khuyến nghị: 300x300px)
+- groomsman1.jpg - Ảnh phù rể 1 (kích thước khuyến nghị: 300x300px)
+- groomsman2.jpg - Ảnh phù rể 2 (kích thước khuyến nghị: 300x300px)
+
+### Album hình cưới:
+- gallery1.jpg đến gallery12.jpg - Ảnh trong album cưới (kích thước khuyến nghị: 600x600px)
+
+### QR Code cho Hộp mừng cưới:
+- qr-groom.png - QR Code chuyển khoản cho chú rể (kích thước khuyến nghị: 400x400px)
+- qr-bride.png - QR Code chuyển khoản cho cô dâu (kích thước khuyến nghị: 400x400px)
+- floral-decoration.png - Trang trí hoa cho header section (kích thước khuyến nghị: 160x80px)
+
+## Cấu hình Hero Slideshow:
+- **Tự động chuyển**: Mỗi 4 giây
+- **Hiệu ứng**: Fade transition mượt mà
+- **Responsive**: Tự động điều chỉnh trên mọi thiết bị
+- **Để thay đổi**: Sửa trong `/src/components/Hero.js` dòng 10-15
+
+## Lưu ý:
+- Hero background images nên có tỷ lệ 16:9 và dung lượng dưới 500KB
+- Tất cả hình ảnh nên được tối ưu hóa để tải nhanh
+- Sử dụng định dạng JPG hoặc WebP để có kích thước file nhỏ nhất
+- Đảm bảo hình ảnh có chất lượng cao và rõ nét
