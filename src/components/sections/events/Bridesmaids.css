@@ -1,0 +1,106 @@
+.bridesmaids {
+  background: white;
+}
+
+.bridal-party {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.party-section {
+  margin-bottom: 4rem;
+}
+
+.party-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.party-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.party-member {
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.party-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.member-image {
+  margin-bottom: 1.5rem;
+}
+
+.member-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #d4af37;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.party-member:hover .member-image img {
+  transform: scale(1.05);
+}
+
+.member-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.member-role {
+  color: #d4af37;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.member-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .party-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .party-member {
+    padding: 1.5rem;
+  }
+  
+  .member-image img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .member-name {
+    font-size: 1.2rem;
+  }
+  
+  .member-description {
+    font-size: 0.85rem;
+  }
+}

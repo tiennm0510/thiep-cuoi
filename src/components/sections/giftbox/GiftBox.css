@@ -1,0 +1,266 @@
+.giftbox {
+  background: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.giftbox-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.floral-decoration {
+  margin-bottom: 1rem;
+}
+
+.floral-decoration img {
+  width: 80px;
+  height: auto;
+  opacity: 0.8;
+}
+
+.giftbox-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gift-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.gift-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f0f0f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.groom-card::before {
+  background: linear-gradient(90deg, #4a90e2, #7bb3f0);
+}
+
+.bride-card::before {
+  background: linear-gradient(90deg, #e91e63, #f48fb1);
+}
+
+.gift-card-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.groom-card .gift-card-title {
+  color: #4a90e2;
+}
+
+.bride-card .gift-card-title {
+  color: #e91e63;
+}
+
+.qr-code-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-code {
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  display: block;
+}
+
+.bank-info {
+  text-align: left;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.bank-info p {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.bank-info p:last-child {
+  margin-bottom: 0;
+}
+
+.bank-info strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.account-number {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+  color: #d4af37 !important;
+}
+
+.giftbox-message {
+  text-align: center;
+  background: linear-gradient(135deg, #f4e4bc, #d4af37);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.giftbox-message::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: floatPattern 20s ease-in-out infinite;
+}
+
+@keyframes floatPattern {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+.message-content {
+  position: relative;
+  z-index: 2;
+}
+
+.message-content p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: white;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.heart-decoration {
+  font-size: 2rem;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gift-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .gift-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .gift-card-title {
+    font-size: 1.5rem;
+  }
+
+  .qr-code img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .bank-info {
+    padding: 1.2rem;
+  }
+
+  .bank-info p {
+    font-size: 0.9rem;
+  }
+
+  .giftbox-message {
+    padding: 2rem 1.5rem;
+  }
+
+  .message-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .qr-code img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bank-info {
+    padding: 1rem;
+  }
+
+  .bank-info p {
+    font-size: 0.85rem;
+  }
+
+  .giftbox-message {
+    padding: 1.5rem 1rem;
+  }
+
+  .message-content p {
+    font-size: 1rem;
+  }
+}

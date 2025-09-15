@@ -1,0 +1,191 @@
+.wedding-events {
+  background: #fafafa;
+}
+
+/* Main wedding ceremony section */
+.main-wedding-section {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.main-wedding-section .event-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Reception section */
+.reception-section {
+  margin-top: 4rem;
+}
+
+.reception-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.reception-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.event-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+}
+
+.event-card.ceremony::before {
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+}
+
+.event-card.reception::before {
+  background: linear-gradient(90deg, #f4e4bc, #d4af37);
+}
+
+.event-card.main-ceremony::before {
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  height: 6px;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.event-header {
+  margin-bottom: 1.5rem;
+}
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.main-wedding-section .event-title {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.reception-grid .event-title {
+  font-size: 1.3rem;
+}
+
+.event-time {
+  color: #d4af37;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.main-wedding-section .event-time {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.event-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.main-wedding-section .event-location {
+  justify-content: center;
+  text-align: center;
+}
+
+.location-icon {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.event-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.main-wedding-section .event-actions {
+  justify-content: center;
+}
+
+.event-actions .btn {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+  .main-wedding-section {
+    margin: 2rem 0;
+  }
+  
+  .main-wedding-section .event-card {
+    max-width: 100%;
+  }
+  
+  .reception-section {
+    margin-top: 3rem;
+  }
+  
+  .reception-title {
+    font-size: 1.5rem;
+  }
+  
+  .reception-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .event-card {
+    padding: 1.5rem;
+  }
+  
+  .event-title {
+    font-size: 1.3rem;
+  }
+  
+  .main-wedding-section .event-title {
+    font-size: 1.5rem;
+  }
+  
+  .reception-grid .event-title {
+    font-size: 1.2rem;
+  }
+  
+  .event-actions {
+    flex-direction: column;
+  }
+  
+  .event-actions .btn {
+    flex: none;
+  }
+}

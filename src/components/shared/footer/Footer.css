@@ -1,0 +1,260 @@
+/* Thank you section */
+.thank-you-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+
+.thank-you-content {
+  text-align: center;
+  position: relative;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.couple-photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.photo-frame {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  background: white;
+  padding: 5px;
+}
+
+.photo-frame:hover {
+  transform: scale(1.05);
+}
+
+.photo-frame:not(.main-photo) {
+  width: 120px;
+  height: 120px;
+}
+
+.photo-frame.main-photo {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #d4af37;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.thank-you-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5rem;
+  color: #d4af37;
+  margin: 2rem 0 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.thank-you-message {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-text h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.footer-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.footer-quote {
+  font-style: italic;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer-links button:hover {
+  color: #d4af37;
+}
+
+.footer-links button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.footer-links button:hover::before {
+  width: 30px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #555;
+  color: #ccc;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #d4af37;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .thank-you-section {
+    min-height: 80vh;
+    padding: 1rem 0;
+  }
+
+  .couple-photos {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .photo-frame:not(.main-photo) {
+    width: 80px;
+    height: 80px;
+  }
+
+  .photo-frame.main-photo {
+    width: 150px;
+    height: 150px;
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .thank-you-title {
+    font-size: 3.5rem;
+  }
+
+  .thank-you-message {
+    font-size: 1rem;
+  }
+
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .footer-links button {
+    text-align: center;
+  }
+
+  .footer-text h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .thank-you-section {
+    min-height: 70vh;
+  }
+
+  .couple-photos {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .photo-frame:not(.main-photo) {
+    width: 100px;
+    height: 100px;
+  }
+
+  .photo-frame.main-photo {
+    width: 180px;
+    height: 180px;
+    order: 0;
+    margin-bottom: 0;
+  }
+
+  .thank-you-title {
+    font-size: 3rem;
+  }
+
+}
