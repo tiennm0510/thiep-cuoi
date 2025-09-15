@@ -8,25 +8,25 @@ const PhotoGallery = () => {
   const [showFullscreen, setShowFullscreen] = useState(false);
 
   const { photoGallery } = weddingContent;
-  const galleryImages = photoGallery.photos;
+  const total = photoGallery.total;
 
   // Auto-play slideshow
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+      setCurrentSlide((prev) => (prev + 1) % total);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, galleryImages.length]);
+  }, [isAutoPlaying, total]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+    setCurrentSlide((prev) => (prev + 1) % total);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    setCurrentSlide((prev) => (prev - 1 + total) % total);
   };
 
   const goToSlide = (index) => {
@@ -45,6 +45,15 @@ const PhotoGallery = () => {
   const closeFullscreen = () => {
     setShowFullscreen(false);
   };
+
+  const galleryImages = [];
+  for (let i = 1; i <= total; i++) {
+      galleryImages.push({
+          id: i,
+          src: photoGallery.photo_link + "/" + i + ".jpg",
+          alt: "Ảnh Cưới " + i,
+      })
+  }
 
   return (
     <section id="gallery" className="photo-gallery section">
@@ -84,7 +93,7 @@ const PhotoGallery = () => {
 
             {/* Slide counter */}
             <div className="slide-counter">
-              {currentSlide + 1} / {galleryImages.length}
+              {currentSlide + 1} / {total}
             </div>
           </div>
 
@@ -144,7 +153,7 @@ const PhotoGallery = () => {
                 <i className="fas fa-chevron-right"></i>
               </button>
               <div className="fullscreen-counter">
-                {currentSlide + 1} / {galleryImages.length}
+                {currentSlide + 1} / {total}
               </div>
             </div>
           </div>

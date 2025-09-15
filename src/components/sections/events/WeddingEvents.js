@@ -1,32 +1,11 @@
 import React from 'react';
 import './WeddingEvents.css';
+import weddingContent from '../../../config/content';
+
+const { mainWedding, eventsWedding } = weddingContent;
+
 
 const WeddingEvents = () => {
-  const mainWedding = {
-    id: 0,
-    title: "LỄ THÀNH HÔN",
-    time: "11:00 AM 11/10/2025",
-    location: "Nhà thờ Đức Bà Sài Gòn, Quận 1, TP. Hồ Chí Minh",
-    type: "main-ceremony"
-  };
-
-  const events = [
-    {
-      id: 1,
-      title: "TIỆC CƯỚI NHÀ NỮ",
-      time: "11:30 AM 10/02/2023",
-      location: "187 Hà Huy Tập, P. Hoà Khê, Quận Thanh Khê, Đà Nẵng",
-      type: "reception"
-    },
-    {
-      id: 2,
-      title: "TIỆC CƯỚI NHÀ NAM",
-      time: "12:00 AM 12/09/2023",
-      location: "A30 Trần Hưng Đạo, P. An Hải Tây, Quận Sơn Trà, Đà Nẵng",
-      type: "reception"
-    }
-  ];
-
   const addToCalendar = (event) => {
     const eventData = {
       name: `${event.title} (Đám cưới Mạnh Tiến và Linh Giang)`,
@@ -74,7 +53,7 @@ const WeddingEvents = () => {
             <div className="event-actions">
               <button 
                 className="btn btn-outline"
-                onClick={() => addToCalendar(mainWedding)}
+                onClick={() =>  addToCalendar(mainWedding)}
               >
                 Thêm vào lịch
               </button>
@@ -89,7 +68,7 @@ const WeddingEvents = () => {
         <div className="reception-section">
           <h3 className="reception-title">Tiệc Cưới</h3>
           <div className="reception-grid">
-            {events.map((event) => (
+            {eventsWedding.map((event) => (
               <div key={event.id} className={`event-card ${event.type}`}>
                 <div className="event-header">
                   <h4 className="event-title">{event.title}</h4>

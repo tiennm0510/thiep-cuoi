@@ -7,58 +7,96 @@ const weddingContent = {
     groom: {
       name: "Mạnh Tiến",
       fullName: "Nguyễn Mạnh Tiến",
-      description: "Là bác sĩ nha khoa hiện đang công tác tại một phòng khám nha khoa ở Quận 1 thành phố Hồ Chí Minh. Là một người hiền lành và ít nói. Luôn coi trọng tình cảm và yêu thương gia đình. Với anh: \"Gia đình là điểm tựa vững chắc nhất và là bến đỗ bình yên không đâu sánh bằng đối với mỗi con người. Đó luôn là nơi tràn ngập tình yêu thương để ta trở về.\"",
+      family: {
+          father: "Nguyễn Văn Thắng",
+          mother: "Khuất Thị Thu"
+      },
       image: "/images/groom.jpg"
     },
     bride: {
       name: "Linh Giang",
       fullName: "Nguyễn Thị Linh Giang",
-      description: "Cô gái đến từ xứ Huế mộng mơ, hiện đang sinh sống và làm việc tại Sài Gòn. Sau khi tốt nghiệp Học viện Báo chí và Tuyên truyền, quyết tâm theo đuổi đam mê làm phóng viên du lịch. Là một người hay cười nhưng lại sống nội tâm, thích đọc sách, trồng cây và yêu thiên nhiên. Ngoài ra còn rất thích vẽ vời, nuôi mèo và nuôi ước mơ có cho mình một vườn hồng khoe sắc.",
+        family: {
+            father: "",
+            mother: "Khuất Thị Liên"
+        },
       image: "/images/bride.jpg"
     }
   },
+  mainWedding: {
+    id: 0,
+    title: "LỄ THÀNH HÔN",
+    time: "13:00 Ngày 12/10/2025",
+    location: "Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+    type: "main-ceremony"
+  },
+
+  eventsWedding: [
+    {
+      id: 1,
+      title: "TIỆC CƯỚI NHÀ GÁI",
+      time: "16:00 11/10/2025",
+      location: "Số 1, Ngõ 6, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+      type: "reception"
+    },
+    {
+      id: 2,
+      title: "TIỆC CƯỚI NHÀ TRAI",
+      time: "16:00 11/10/2025",
+      location: "Số 54, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+      type: "reception"
+    }
+  ],
 
   // Hero section
   hero: {
     title: "Nguyễn Mạnh Tiến & Nguyễn Thị Linh Giang",
     subtitle: "Chúng tôi sẽ kết hôn!",
     date: "12 Tháng 10, 2025",
-    location: "Nhà hàng Golden Palace, TP.HCM",
-    backgroundImage: "/images/hero-bg.jpg"
+    location: "",
   },
 
+
+  // Background images for slideshow
+  backgroundImages: [
+    '/images/hero-bg/1.jpg',
+    '/images/hero-bg/2.jpg',
+    '/images/hero-bg/3.jpg',
+    '/images/hero-bg/4.jpg'
+  ],
+
   // Câu chuyện tình yêu
-  loveStory: {
+  loveStories: {
     title: "Câu Chuyện Tình Yêu",
     subtitle: "Hành trình từ khi gặp gỡ đến khi quyết định về chung một nhà",
     timeline: [
       {
         id: 1,
-        date: "Tháng 3, 2020",
+        date: "Tháng 2, 2024",
         title: "Lần đầu gặp gỡ",
-        description: "Chúng tôi gặp nhau lần đầu tại một quán cà phê nhỏ trong khu phố cũ. Ánh mắt anh và nụ cười em đã tạo nên một khoảnh khắc đặc biệt.",
-        image: "/images/story1.jpg"
+        description: "Chúng tôi gặp nhau lần đầu tại một quán cà phê nhỏ trên phố huyện. Ánh mắt anh và nụ cười em đã tạo nên một khoảnh khắc đặc biệt.",
+        image: "/images/story/1.jpg"
       },
       {
         id: 2,
         date: "Tháng 8, 2020",
         title: "Hẹn hò đầu tiên",
         description: "Buổi hẹn đầu tiên tại công viên Tao Đàn, chúng tôi đã trò chuyện suốt cả ngày mà không cảm thấy mệt mỏi.",
-        image: "/images/story2.jpg"
+        image: "/images/story/2.jpg"
       },
       {
         id: 3,
         date: "Tháng 2, 2022",
         title: "Lời cầu hôn",
         description: "Trên bãi biển Vũng Tàu, dưới ánh hoàng hôn, anh đã quỳ xuống và cầu hôn em. Đó là khoảnh khắc hạnh phúc nhất trong đời em.",
-        image: "/images/story3.jpg"
+        image: "/images/story/3.jpg"
       },
       {
         id: 4,
         date: "Tháng 12, 2024",
         title: "Đám cưới",
         description: "Và bây giờ, chúng tôi sẽ chính thức trở thành vợ chồng, bước vào cuộc sống mới với nhiều yêu thương.",
-        image: "/images/story4.jpg"
+        image: "/images/story/4.jpg"
       }
     ]
   },
@@ -100,20 +138,8 @@ const weddingContent = {
   photoGallery: {
     title: "Album Ảnh Cưới",
     subtitle: "Những khoảnh khắc đẹp nhất của chúng tôi",
-    photos: [
-      { id: 1, src: "/images/gallery1.jpg", alt: "Ảnh cưới 1" },
-      { id: 2, src: "/images/gallery2.jpg", alt: "Ảnh cưới 2" },
-      { id: 3, src: "/images/gallery3.jpg", alt: "Ảnh cưới 3" },
-      { id: 4, src: "/images/gallery4.jpg", alt: "Ảnh cưới 4" },
-      { id: 5, src: "/images/gallery5.jpg", alt: "Ảnh cưới 5" },
-      { id: 6, src: "/images/gallery6.jpg", alt: "Ảnh cưới 6" },
-      { id: 7, src: "/images/gallery7.jpg", alt: "Ảnh cưới 7" },
-      { id: 8, src: "/images/gallery8.jpg", alt: "Ảnh cưới 8" },
-      { id: 9, src: "/images/gallery9.jpg", alt: "Ảnh cưới 9" },
-      { id: 10, src: "/images/gallery10.jpg", alt: "Ảnh cưới 10" },
-      { id: 11, src: "/images/gallery11.jpg", alt: "Ảnh cưới 11" },
-      { id: 12, src: "/images/gallery12.jpg", alt: "Ảnh cưới 12" }
-    ]
+    total: 12,
+    photo_link: "/images/gallery"
   },
 
   // RSVP
@@ -146,28 +172,28 @@ const weddingContent = {
         title: "Hạnh Phúc Cuối Cùng",
         artist: "Trương Việt Thái",
         src: "/music/hanh-phuc-cuoi-cung.mp3",
-        cover: "/images/hanh-phuc-cuoi-cung.jpg"
+        cover: "/images/music-cover/hanh-phuc-cuoi-cung.jpg"
       },
       {
         id: 2,
         title: "I Do",
         artist: "911",
         src: "/music/i-do.mp3",
-        cover: "/images/i-do.jpg"
+        cover: "/images/music-cover/i-do.jpg"
       },
       {
         id: 3,
         title: "Ngày Cưới",
         artist: "Khắc Việt",
         src: "/music/ngay-cuoi.mp3",
-        cover: "/images/ngay-cuoi.jpg"
+        cover: "/images/music-cover/ngay-cuoi.jpg"
       },
       {
         id: 4,
         title: "Một Đời",
         artist: "14 Casper & Bon Nghiêm",
         src: "/music/mot-doi.mp3",
-        cover: "/images/mot-doi.jpg"
+        cover: "/images/music-cover/mot-doi.jpg"
       }
     ]
   },

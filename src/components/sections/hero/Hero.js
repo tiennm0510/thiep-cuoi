@@ -3,7 +3,7 @@ import './Hero.css';
 import weddingContent from '../../../config/content';
 
 const Hero = () => {
-  const { hero, couple } = weddingContent;
+  const { hero, backgroundImages, couple } = weddingContent;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -11,14 +11,6 @@ const Hero = () => {
     minutes: 0,
     seconds: 0
   });
-
-  // Background images for slideshow
-  const backgroundImages = [
-    '/images/hero-bg1.jpg',
-    '/images/hero-bg2.jpg',
-    '/images/hero-bg3.jpg',
-    '/images/hero-bg4.jpg'
-  ];
 
   // Countdown timer
   useEffect(() => {
