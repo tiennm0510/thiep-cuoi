@@ -37,26 +37,34 @@ const MusicPlayer = () => {
       if (isPlaying) {
         audio.pause();
       } else {
+        // Unmute when user first interacts
+        if (!hasUserInteracted) {
+          audio.muted = false;
+          setHasUserInteracted(true);
+        }
         audio.play();
       }
       setIsPlaying(!isPlaying);
     }
-  }, [isPlaying]);
+  }, [isPlaying, hasUserInteracted]);
 
   // Auto-play effect khi component mount
   useEffect(() => {
     const handleFirstInteraction = () => {
-      setHasUserInteracted(true);
-
-      // Ngay lập tức phát nhạc sau interaction đầu tiên
       const audio = audioRef.current;
-      if (audio && isPlaying) {
-        setTimeout(() => {
-          audio.play().catch(err => {
-            console.log('Auto-play prevented:', err);
-            setIsPlaying(false);
-          });
-        }, 100);
+      if (audio && !hasUserInteracted) {
+        audio.muted = false;
+        setHasUserInteracted(true);
+
+        // Ngay lập tức phát nhạc sau interaction đầu tiên
+        if (isPlaying) {
+          setTimeout(() => {
+            audio.play().catch(err => {
+              console.log('Auto-play prevented:', err);
+              setIsPlaying(false);
+            });
+          }, 100);
+        }
       }
 
       document.removeEventListener('click', handleFirstInteraction);
@@ -65,10 +73,12 @@ const MusicPlayer = () => {
       document.removeEventListener('touchstart', handleFirstInteraction);
     };
 
-    document.addEventListener('click', handleFirstInteraction);
-    document.addEventListener('keydown', handleFirstInteraction);
-    document.addEventListener('scroll', handleFirstInteraction);
-    document.addEventListener('touchstart', handleFirstInteraction);
+    if (!hasUserInteracted) {
+      document.addEventListener('click', handleFirstInteraction);
+      document.addEventListener('keydown', handleFirstInteraction);
+      document.addEventListener('scroll', handleFirstInteraction);
+      document.addEventListener('touchstart', handleFirstInteraction);
+    }
 
     return () => {
       document.removeEventListener('click', handleFirstInteraction);
@@ -76,12 +86,13 @@ const MusicPlayer = () => {
       document.removeEventListener('scroll', handleFirstInteraction);
       document.removeEventListener('touchstart', handleFirstInteraction);
     };
-  }, [isPlaying]);
+  }, [isPlaying, hasUserInteracted]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
       audio.volume = volume;
+      audio.muted = !hasUserInteracted;
 
       const updateTime = () => setCurrentTime(audio.currentTime);
       const updateDuration = () => setDuration(audio.duration);
@@ -93,18 +104,19 @@ const MusicPlayer = () => {
       audio.addEventListener('ended', handleEnded);
       audio.addEventListener('error', handleError);
 
-      // Auto-play nếu có user interaction HOẶC thử ngay lần đầu
+      // Auto-play logic với muted
       if (isPlaying) {
         if (hasUserInteracted) {
+          // User đã tương tác, có thể phát với âm thanh
           audio.play().catch(err => {
-            console.log('Auto-play prevented:', err);
+            console.log('Play failed:', err);
             setIsPlaying(false);
           });
         } else {
-          // Thử auto-play ngay, nếu fail thì chờ user interaction
+          // Chưa có user interaction, phát muted
+          audio.muted = true;
           audio.play().catch(err => {
-            console.log('Auto-play prevented, waiting for user interaction:', err);
-            // Không set isPlaying = false, chờ user interaction
+            console.log('Muted autoplay failed:', err);
           });
         }
       }
@@ -116,7 +128,7 @@ const MusicPlayer = () => {
         audio.removeEventListener('error', handleError);
       };
     }
-  }, [volume, nextTrack, hasUserInteracted, isPlaying]);
+  }, [volume, nextTrack, hasUserInteracted, isPlaying, currentTrack]);
 
   const selectTrack = useCallback((index) => {
     setCurrentTrack(index);
@@ -169,8 +181,24 @@ const MusicPlayer = () => {
         ref={audioRef}
         src={playlist[currentTrack].src}
         preload="metadata"
-        autoPlay={hasUserInteracted}
+        muted
       />
+
+      {/* Notification banner for unmuted audio */}
+      {!hasUserInteracted && isPlaying && (
+        <div className="audio-notification">
+          <div className="notification-content">
+            <i className="fas fa-volume-mute"></i>
+            <span>Nhạc đang phát không tiếng. Click bất kỳ đâu để bật âm thanh!</span>
+            <button
+              className="notification-close"
+              onClick={() => setHasUserInteracted(true)}
+            >
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      )}
 
       {!isExpanded ? (
         // Thu gọn - chỉ hiện biểu tượng
@@ -196,7 +224,7 @@ const MusicPlayer = () => {
                       togglePlayPause();
                     }}
                   >
-                    <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                    <i className={`fas ${isPlaying ? (hasUserInteracted ? 'fa-pause' : 'fa-volume-mute') : 'fa-play'}`}></i>
                   </button>
                 </div>
               </div>
@@ -225,7 +253,7 @@ const MusicPlayer = () => {
                 <h5>{playlist[currentTrack].title}</h5>
                 <p>{playlist[currentTrack].artist}</p>
                 <div className="tooltip-status">
-                  {!hasUserInteracted && isPlaying ? '🎵 Click để phát nhạc' :
+                  {!hasUserInteracted && isPlaying ? '🔇 Click để bật âm thanh' :
                    isPlaying ? '♪ Đang phát' : '⏸ Tạm dừng'}
                 </div>
               </div>
@@ -263,7 +291,7 @@ const MusicPlayer = () => {
                 <i className="fas fa-step-backward"></i>
               </button>
               <button className="control-btn play-btn" onClick={togglePlayPause}>
-                <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                <i className={`fas ${isPlaying ? (hasUserInteracted ? 'fa-pause' : 'fa-volume-mute') : 'fa-play'}`}></i>
               </button>
               <button className="control-btn" onClick={nextTrack}>
                 <i className="fas fa-step-forward"></i>
