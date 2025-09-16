@@ -240,7 +240,15 @@
   }
 
   .footer-text h3 {
-    font-size: 2rem;
+    font-size: 1.3rem;
+  }
+
+  .footer-text p {
+    font-size: 0.8rem;
+  }
+
+  .footer-quote {
+    font-size: 0.8rem;
   }
 }
 
