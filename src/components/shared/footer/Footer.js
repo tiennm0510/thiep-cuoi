@@ -32,7 +32,7 @@ const Footer = () => {
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
-            <div className="footer-text">
+            <div className="footer-text footer-text-center">
               <h3>{couple.groom.fullName} & {couple.bride.fullName}</h3>
               <p>{hero.date}</p>
               <p className="footer-quote">
@@ -40,7 +40,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="footer-links">
+            <div className="footer-links footer-links-center">
               {navigation.map((item) => (
                 <button
                   key={item.id}
