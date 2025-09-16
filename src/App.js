@@ -28,7 +28,7 @@ function App() {
         setIsLoading(false);
         setShowContent(true);
       }, 500); // 500ms cho fade out
-    }, 8000); // 8 seconds loading (3 seconds longer)
+    }, 5000); // 8 seconds loading (3 seconds longer)
 
     return () => clearTimeout(timer);
   }, []);
@@ -45,8 +45,8 @@ function App() {
           <Header />
           <Hero />
           <Couple />
-          <LoveStory />
           <WeddingEvents />
+          <LoveStory />
           <PhotoGallery />
           <GiftBox />
           <RSVP />

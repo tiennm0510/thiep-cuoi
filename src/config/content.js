@@ -120,21 +120,21 @@ const weddingContent = {
         date: "Tháng 5, 2025",
         title: "Lời cầu hôn",
         description: "Một buổi tối nhẹ nhàng, tại nơi ngày xưa chúng tôi nói lời yêu. Anh ghé tai thỏ thẻ, ngỏ lời cầu hôn em. Em đã xúc động và đồng ý. Chúng tôi quyết định sẽ cùng nhau xây dựng một tương lai hạnh phúc.",
-        image: "/images/story/6.jpg"
+        image: "/images/story/7.jpg"
       },
       {
         id: 8,
-        date: "Tháng 6, 2025",
+        date: "Tháng 7, 2025",
         title: "Lễ dạm ngõ",
         description: "Sau khi được sự đồng ý của gia đình hai bên, chúng tôi đã tổ chức lễ dạm ngõ. Đây là bước quan trọng để chúng tôi chính thức trở thành vợ chồng trong tương lai gần. Chiếc nhẫn cầu hôn được đeo vào tay em như minh chứng cho lời hứa trọn đời bên nhau.",
-        image: "/images/story/7.jpg"
+        image: "/images/story/8.jpg"
       },
       {
         id: 9,
         date: "Tháng 10, 2025",
         title: "Lễ thành hôn",
         description: "Ngày trọng đại đã đến, chúng tôi sẽ cùng nhau bước vào lễ thành hôn, bắt đầu một hành trình mới với nhiều thử thách và niềm vui. Chúng tôi rất mong được sự chúc phúc từ gia đình và bạn bè.",
-        image: "/images/story/7.jpg"
+        image: "/images/story/9.jpg"
       }
     ]
   },
