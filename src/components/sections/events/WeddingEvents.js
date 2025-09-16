@@ -82,6 +82,7 @@ const WeddingEvents = () => {
         {/* Tiệc cưới - một hàng */}
         <div className="reception-section">
           <h3 className="reception-title">Tiệc Cưới</h3>
+          <div className="divider"></div>
           <div className="reception-grid">
             {eventsWedding.map((event) => (
               <div key={event.id} className={`event-card ${event.type}`}>

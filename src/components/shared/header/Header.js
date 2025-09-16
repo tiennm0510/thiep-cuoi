@@ -34,9 +34,10 @@ const Header = () => {
             <ul className="nav-list">
               <li><button onClick={() => scrollToSection('couple')}>Cặp đôi</button></li>
               <li><button onClick={() => scrollToSection('story')}>Chuyện tình yêu</button></li>
-              <li><button onClick={() => scrollToSection('events')}>Sự kiện cưới</button></li>
-              <li><button onClick={() => scrollToSection('bridesmaids')}>Phù Dâu & Phù Rể</button></li>
-              <li><button onClick={() => scrollToSection('gallery')}>Album Hình Cưới</button></li>
+              <li><button onClick={() => scrollToSection('events')}>Sự kiện cưới</button></li>                       
+              <li><button onClick={() => scrollToSection('gallery')}>Album hình cưới</button></li>                       
+              <li><button onClick={() => scrollToSection('giftbox')}>Hộp mừng cưới</button></li>
+              <li><button onClick={() => scrollToSection('rsvp')}>Lời chúc</button></li>
             </ul>
           </nav>
 

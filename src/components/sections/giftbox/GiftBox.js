@@ -13,6 +13,7 @@ const GiftBox = () => {
             <img src={giftBox.floral} alt="Floral decoration" />
           </div>
           <h2 className="section-title">{giftBox.title}</h2>
+          <div className="divider"></div>
           <p className="section-subtitle">{giftBox.subtitle}</p>
         </div>
 

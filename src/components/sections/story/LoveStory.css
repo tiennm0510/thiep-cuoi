@@ -2,22 +2,58 @@
   background: var(--color-white);
 }
 
-.timeline {
+.timeline-wrapper {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 0;
 }
 
-.timeline::before {
+.timeline-wrapper::before {
   content: '';
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: 2rem;
+  bottom: 2rem;
   width: 2px;
   background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
   transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline {
+  position: relative;
+  max-height: 800px; /* Height for approximately 2 story items */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.timeline::-webkit-scrollbar {
+  width: 8px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+  margin: 10px 10px 10px 0;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.timeline::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #c19b2a, #e6d4a8);
+}
+
+/* Firefox scrollbar */
+.timeline {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) rgba(212, 175, 55, 0.1);
 }
 
 .timeline-item {
@@ -137,8 +173,17 @@
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
+  .timeline {
+    max-height: 600px; /* Smaller height for mobile */
+  }
+
+  .timeline::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .timeline-wrapper::before {
     left: 20px;
+    transform: none;
   }
 
   .timeline-item {

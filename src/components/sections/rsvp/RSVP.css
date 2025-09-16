@@ -1,15 +1,17 @@
 .rsvp {
-  background: linear-gradient(135deg, #f4e4bc, #d4af37);
-  color: white;
+  background: var(--color-bg-section);
 }
 
-.rsvp .section-title,
+.rsvp .section-title {
+  color: var(--color-primary);
+}
+
 .rsvp .section-subtitle {
-  color: white;
+  color: var(--color-text-light);
 }
 
 .rsvp .divider {
-  background: white;
+  background: var(--gradient-divider);
 }
 
 .rsvp-content {
@@ -18,11 +20,10 @@
 }
 
 .rsvp-form-container {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--color-white);
   border-radius: 20px;
   padding: 3rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .rsvp-form {
@@ -39,7 +40,7 @@
 
 .form-group label {
   font-weight: 500;
-  color: white;
+  color: var(--color-text);
   font-size: 1rem;
 }
 
@@ -47,37 +48,36 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--color-border-light);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--color-white);
+  color: var(--color-text);
   font-size: 1rem;
   transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-light);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: white;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  border-color: var(--color-primary);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
 .form-group select option {
-  background: #333;
-  color: white;
+  background: var(--color-white);
+  color: var(--color-text);
 }
 
 .rsvp-submit {
-  background: white;
-  color: #d4af37;
+  background: var(--gradient-primary);
+  color: var(--color-white);
   font-weight: 600;
   font-size: 1.1rem;
   padding: 15px 30px;
@@ -86,9 +86,9 @@
 }
 
 .rsvp-submit:hover {
-  background: #f8f8f8;
+  background: linear-gradient(135deg, #c19b2a, #e6d4a8);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-btn);
 }
 
 .rsvp-success {
@@ -97,14 +97,14 @@
 }
 
 .rsvp-success h2 {
-  color: white;
+  color: var(--color-primary);
   margin-bottom: 1rem;
 }
 
 .rsvp-success p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
+  color: var(--color-text-light);
 }
 
 .success-icon {

@@ -160,6 +160,8 @@ const PhotoGallery = () => {
             </button>
           </div>
 
+          <div className="divider"></div>
+
           {viewMode === 'slideshow' ? (
             <div className={`slideshow-container ${isTransitioning ? 'transitioning' : ''}`}>
               {/* Main slideshow */}
@@ -287,6 +289,26 @@ const PhotoGallery = () => {
               </div>
             </div>
           )}
+        </div>
+
+        <div className="divider"></div>
+
+        {/* YouTube Video Section */}
+        <div className="video-section">
+          <h3 className="video-title">Video Cưới</h3>
+          <div className="divider"></div>
+          <div className="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/E5AnGQC4vq0?si=MfG6SXB0rslft3CH"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

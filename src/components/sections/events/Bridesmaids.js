@@ -17,6 +17,7 @@ const Bridesmaids = () => {
         <div className="bridal-party">
           <div className="party-section">
             <h3 className="party-title">Phù Dâu</h3>
+            <div className="divider"></div>
             <div className="party-grid">
               {weddingParty.bridesmaids.map((person) => (
                 <div key={person.id} className="party-member">
@@ -35,6 +36,7 @@ const Bridesmaids = () => {
 
           <div className="party-section">
             <h3 className="party-title">Phù Rể</h3>
+            <div className="divider"></div>
             <div className="party-grid">
               {weddingParty.groomsmen.map((person) => (
                 <div key={person.id} className="party-member">

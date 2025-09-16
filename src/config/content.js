@@ -123,14 +123,14 @@ const weddingContent = {
         image: "/images/story/6.jpg"
       },
       {
-        id: 7,
+        id: 8,
         date: "Tháng 6, 2025",
         title: "Lễ dạm ngõ",
         description: "Sau khi được sự đồng ý của gia đình hai bên, chúng tôi đã tổ chức lễ dạm ngõ. Đây là bước quan trọng để chúng tôi chính thức trở thành vợ chồng trong tương lai gần. Chiếc nhẫn cầu hôn được đeo vào tay em như minh chứng cho lời hứa trọn đời bên nhau.",
         image: "/images/story/7.jpg"
       },
       {
-        id: 8,
+        id: 9,
         date: "Tháng 10, 2025",
         title: "Lễ thành hôn",
         description: "Ngày trọng đại đã đến, chúng tôi sẽ cùng nhau bước vào lễ thành hôn, bắt đầu một hành trình mới với nhiều thử thách và niềm vui. Chúng tôi rất mong được sự chúc phúc từ gia đình và bạn bè.",
@@ -244,7 +244,7 @@ const weddingContent = {
     { id: "events", label: "Sự kiện", href: "#events" },
     { id: "gallery", label: "Album", href: "#gallery" },
     { id: "giftbox", label: "Hộp mừng cưới", href: "#giftbox" },
-    { id: "rsvp", label: "RSVP", href: "#rsvp" }
+    { id: "rsvp", label: "Lời chúc", href: "#rsvp" }
   ],
 
   // Hộp mừng cưới

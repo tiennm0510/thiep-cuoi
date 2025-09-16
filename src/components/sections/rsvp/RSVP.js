@@ -55,7 +55,7 @@ const RSVP = () => {
   }
 
   return (
-    <section className="rsvp section">
+    <section id="rsvp" className="rsvp section">
       <div className="container">
         <h2 className="section-title">Lời chúc</h2>
         <div className="divider"></div>

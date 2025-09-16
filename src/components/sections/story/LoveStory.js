@@ -14,21 +14,23 @@ const LoveStory = () => {
             {loveStories.subtitle}
         </p>
         
-        <div className="timeline">
-          {loveStories.timeline.map((story, index) => (
-            <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-              <div className="timeline-content">
-                <div className="story-image">
-                  <img src={story.image} alt={story.title} />
-                </div>
-                <div className="story-text">
-                  <h3 className="story-title">{story.title}</h3>
-                  <p className="story-date">{story.date}</p>
-                  <p className="story-content">{story.description}</p>
+        <div className="timeline-wrapper">
+          <div className="timeline">
+            {loveStories.timeline.map((story, index) => (
+              <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                <div className="timeline-content">
+                  <div className="story-image">
+                    <img src={story.image} alt={story.title} />
+                  </div>
+                  <div className="story-text">
+                    <h3 className="story-title">{story.title}</h3>
+                    <p className="story-date">{story.date}</p>
+                    <p className="story-content">{story.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         
         <div className="love-quote">
