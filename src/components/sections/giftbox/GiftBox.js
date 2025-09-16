@@ -10,7 +10,7 @@ const GiftBox = () => {
       <div className="container">
         <div className="giftbox-header">
           <div className="floral-decoration">
-            <img src="/images/floral-decoration.png" alt="Floral decoration" />
+            <img src={giftBox.floral} alt="Floral decoration" />
           </div>
           <h2 className="section-title">{giftBox.title}</h2>
           <p className="section-subtitle">{giftBox.subtitle}</p>

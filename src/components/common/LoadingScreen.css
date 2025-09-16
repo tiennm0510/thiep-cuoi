@@ -1,0 +1,337 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  overflow: hidden;
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+}
+
+.loading-container {
+  text-align: center;
+  position: relative;
+}
+
+.car-container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  margin: 0 auto 40px;
+}
+
+.car {
+  width: 100%;
+  height: 100%;
+  animation: carBounce 2s ease-in-out infinite;
+}
+
+/* Car bouncing animation */
+@keyframes carBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-1px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(0.5deg);
+  }
+}
+
+/* Wheel rotation */
+.car circle:nth-child(13),
+.car circle:nth-child(16) {
+  animation: wheelRotate 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes wheelRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hearts animation */
+.hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  color: #e53e3e;
+  font-size: 20px;
+  animation: heartFloat 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+.heart-1 {
+  left: 60%;
+  top: 30%;
+  animation-delay: 0s;
+  font-size: 24px;
+}
+
+.heart-2 {
+  left: 70%;
+  top: 20%;
+  animation-delay: 0.5s;
+  font-size: 18px;
+}
+
+.heart-3 {
+  left: 80%;
+  top: 35%;
+  animation-delay: 1s;
+  font-size: 22px;
+}
+
+.heart-4 {
+  left: 65%;
+  top: 45%;
+  animation-delay: 1.5s;
+  font-size: 16px;
+}
+
+.heart-5 {
+  left: 75%;
+  top: 15%;
+  animation-delay: 2s;
+  font-size: 20px;
+}
+
+.heart-6 {
+  left: 85%;
+  top: 25%;
+  animation-delay: 2.5s;
+  font-size: 18px;
+}
+
+.heart-7 {
+  left: 90%;
+  top: 40%;
+  animation-delay: 0.8s;
+  font-size: 16px;
+}
+
+.heart-8 {
+  left: 95%;
+  top: 30%;
+  animation-delay: 1.8s;
+  font-size: 14px;
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.8);
+  }
+}
+
+/* Road animation */
+.road {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 120%;
+  height: 4px;
+  background: #4a5568;
+  overflow: hidden;
+}
+
+.road-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 2px;
+  background: white;
+  animation: roadMove 1.5s linear infinite;
+}
+
+.road-line-1 {
+  left: -40px;
+  animation-delay: 0s;
+}
+
+.road-line-2 {
+  left: -40px;
+  animation-delay: 0.5s;
+}
+
+.road-line-3 {
+  left: -40px;
+  animation-delay: 1s;
+}
+
+@keyframes roadMove {
+  from {
+    left: -40px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* Loading text */
+.loading-text {
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.loading-text h2 {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.heart-icon {
+  color: #e53e3e;
+  animation: heartPulse 1.5s ease-in-out infinite;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Progress bar */
+.progress-container {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e53e3e 0%, #ff6b9d 50%, #e53e3e 100%);
+  border-radius: 20px;
+  width: 0%;
+  animation: progressFill 5s ease-out forwards;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: progressShine 1.5s ease-in-out infinite;
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes progressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .car-container {
+    width: 300px;
+    height: 150px;
+  }
+
+  .loading-text h2 {
+    font-size: 24px;
+  }
+
+  .progress-container {
+    width: 250px;
+  }
+
+  .heart {
+    font-size: 16px;
+  }
+
+  .heart-1 { font-size: 20px; }
+  .heart-2 { font-size: 14px; }
+  .heart-3 { font-size: 18px; }
+  .heart-4 { font-size: 12px; }
+  .heart-5 { font-size: 16px; }
+  .heart-6 { font-size: 14px; }
+  .heart-7 { font-size: 12px; }
+  .heart-8 { font-size: 10px; }
+}
+
+@media (max-width: 480px) {
+  .car-container {
+    width: 250px;
+    height: 125px;
+  }
+
+  .loading-text h2 {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .progress-container {
+    width: 200px;
+  }
+}

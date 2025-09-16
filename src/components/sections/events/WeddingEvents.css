@@ -1,5 +1,5 @@
 .wedding-events {
-  background: #fafafa;
+  background: var(--color-bg-section);
 }
 
 /* Main wedding ceremony section */
@@ -20,9 +20,9 @@
 }
 
 .reception-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 2rem;
-  color: #333;
+  color: var(--color-text);
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 600;
@@ -37,10 +37,10 @@
 }
 
 .event-card {
-  background: white;
-  border-radius: 15px;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -53,25 +53,25 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  background: var(--gradient-divider);
 }
 
 .event-card.ceremony::before {
-  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  background: var(--gradient-divider);
 }
 
 .event-card.reception::before {
-  background: linear-gradient(90deg, #f4e4bc, #d4af37);
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
 }
 
 .event-card.main-ceremony::before {
-  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  background: var(--gradient-divider);
   height: 6px;
 }
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .event-header {
@@ -79,9 +79,9 @@
 }
 
 .event-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: 1.5rem;
-  color: #333;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -96,7 +96,7 @@
 }
 
 .event-time {
-  color: #d4af37;
+  color: var(--color-primary);
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -111,18 +111,23 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  color: #666;
+  color: var(--color-text-light);
   line-height: 1.6;
 }
 
 .main-wedding-section .event-location {
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .location-icon {
   font-size: 1.2rem;
-  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.main-wedding-section .location-icon {
+  margin-top: 0;
 }
 
 .event-actions {

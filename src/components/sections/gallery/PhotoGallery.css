@@ -2,22 +2,324 @@
   background: #fafafa;
 }
 
+/* Gallery Container */
+.gallery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* View Controls */
+.view-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.view-toggle-btn {
+  background: linear-gradient(45deg, #f8f8f8, #e8e8e8);
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #d4af37;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
+}
+
+.view-toggle-btn:hover {
+  background: linear-gradient(45deg, #d4af37, #f4e4bc);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.view-toggle-btn.active {
+  background: linear-gradient(45deg, #d4af37, #f4e4bc);
+  color: white;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.view-toggle-btn i {
+  display: block;
+}
+
 /* Slideshow Container */
 .slideshow-container {
-  margin-top: 3rem;
+  width: 100%;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+
+.slideshow-container.transitioning {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Grid Container */
+.grid-container {
+  transition: all 0.4s ease;
+  animation: gridFadeIn 0.6s ease-out;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 15px;
+  background: transparent;
+  scroll-behavior: smooth;
+}
+
+.grid-container.transitioning {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* Custom Scrollbar */
+.grid-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.grid-container::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.grid-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #d4af37, #f4e4bc);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.grid-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #c19b2a, #e6d4a8);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar */
+.grid-container {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 rgba(212, 175, 55, 0.1);
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  min-height: min-content;
+}
+
+/* Scroll shadows removed to eliminate white artifacts */
+
+.grid-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: flyIn 0.8s ease-out both;
+  background: transparent;
+  border: none;
+}
+
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8) rotateX(20deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(0.95) rotateX(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes gridFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Grid Portrait Images */
+.grid-item-portrait {
+  position: relative;
+}
+
+.grid-item-portrait img {
+  height: 500px; /* Taller for portrait */
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Grid Landscape Images */
+.grid-item-landscape {
+  position: relative;
+}
+
+.grid-item-landscape img {
+  height: 300px; /* Shorter for landscape */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Grid Unknown orientation */
+.grid-item-unknown img {
+  height: 400px; /* Default height */
+  object-fit: contain;
+  object-position: center;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.grid-item:hover .grid-overlay {
+  opacity: 1;
+}
+
+.grid-icon {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.grid-icon i {
+  display: block;
+}
+
+/* Scroll Controls */
+.scroll-controls {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+}
+
+.scroll-btn {
+  background: rgba(212, 175, 55, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.scroll-btn:hover {
+  background: rgba(193, 155, 42, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}
+
+.scroll-btn i {
+  display: block;
+}
+
+/* Grid scroll indicator - simplified */
+.grid-container {
+  position: relative;
 }
 
 .slideshow-wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 550px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  transition: height 0.3s ease;
+  margin: 0 auto;
+}
+
+/* Slideshow wrapper for portrait images */
+.slideshow-portrait {
+  height: 650px; /* Optimized for portrait wedding photos */
+  max-width: 550px; /* Better ratio for portrait */
+  margin: 0 auto;
+}
+
+/* Slideshow wrapper for landscape images */
+.slideshow-landscape {
+  height: 550px; /* Better fill for landscape */
+  width: 100%;
+  max-width: 800px; /* Full width */
+}
+
+/* Slideshow wrapper for unknown orientation */
+.slideshow-unknown {
+  height: 600px; /* Default balanced height */
+  width: 100%;
+  max-width: 800px;
 }
 
 .slides-container {
@@ -40,6 +342,40 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  transition: object-fit 0.3s ease;
+}
+
+/* Portrait images - taller than wide */
+.slide-portrait {
+  justify-content: center;
+}
+
+.slide-portrait img {
+  object-fit: cover;
+  object-position: center 20%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Landscape images - wider than tall */
+.slide-landscape {
+  justify-content: center;
+}
+
+.slide-landscape img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Unknown orientation fallback */
+.slide-unknown img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .slide-overlay {
@@ -237,19 +573,25 @@
   object-fit: cover;
 }
 
-/* Fullscreen modal */
+/* Fullscreen modal - Portal rendered at body level */
 .fullscreen-modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 800;
+  z-index: 9999;
   animation: fadeIn 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
 }
 
 .fullscreen-content {
@@ -355,9 +697,92 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .slideshow-wrapper {
+  .gallery-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+    padding: 0 15px;
+  }
+
+  .slideshow-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .view-controls {
+    margin-bottom: 1.5rem;
+  }
+
+  .view-toggle-btn {
+    padding: 10px 14px;
+    font-size: 1rem;
+    min-width: 50px;
+  }
+
+  .grid-container {
+    max-height: 70vh;
+  }
+
+  .grid-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .grid-item {
+    border-radius: 12px;
+  }
+
+  .grid-item img {
     height: 300px;
-    margin: 0 10px;
+  }
+
+  .grid-icon {
+    font-size: 2rem;
+  }
+
+  .scroll-controls {
+    right: 15px;
+  }
+
+  .scroll-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .slideshow-wrapper {
+    width: 100%;
+    height: 450px;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  /* Mobile portrait slideshow */
+  .slideshow-portrait {
+    height: 550px;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* Mobile landscape slideshow */
+  .slideshow-landscape {
+    height: 400px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Mobile grid adjustments */
+  .grid-item-portrait img {
+    height: 350px;
+  }
+
+  .grid-item-landscape img {
+    height: 200px;
   }
 
   .slide-nav {
@@ -402,7 +827,7 @@
   .fullscreen-nav {
     width: 50px;
     height: 50px;
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 
   .fullscreen-prev {
@@ -427,9 +852,91 @@
 }
 
 @media (max-width: 480px) {
+  .gallery-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .slideshow-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .view-controls {
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .view-toggle-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    min-width: 45px;
+  }
+
+  .grid-container {
+    max-height: 65vh;
+  }
+
+  .grid-container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+
+  .grid-item img {
+    height: 350px;
+  }
+
+  .grid-icon {
+    font-size: 1.8rem;
+  }
+
+  .scroll-controls {
+    right: 10px;
+  }
+
+  .scroll-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+
   .slideshow-wrapper {
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  /* Small mobile portrait slideshow */
+  .slideshow-portrait {
+    height: 500px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  /* Small mobile landscape slideshow */
+  .slideshow-landscape {
+    height: 350px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Small mobile grid adjustments */
+  .grid-item-portrait img {
+    height: 400px;
+  }
+
+  .grid-item-landscape img {
     height: 250px;
-    margin: 0 5px;
   }
 
   .slide-nav {

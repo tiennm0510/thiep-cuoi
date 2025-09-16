@@ -22,10 +22,22 @@ const WeddingEvents = () => {
       label: "Thêm vào lịch",
       trigger: "click"
     };
-    
+
     // This would integrate with a calendar library in a real implementation
     console.log('Add to calendar:', eventData);
     alert('Tính năng thêm vào lịch sẽ được tích hợp với thư viện calendar');
+  };
+
+  const openGoogleMaps = (event) => {
+    if (event.mapUrl && event.mapUrl.trim() !== '') {
+      // Sử dụng link Google Maps cụ thể nếu có
+      window.open(event.mapUrl, '_blank');
+    } else {
+      // Fallback: search địa chỉ trên Google Maps
+      const encodedLocation = encodeURIComponent(event.location);
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+      window.open(googleMapsUrl, '_blank');
+    }
   };
 
   return (
@@ -57,7 +69,10 @@ const WeddingEvents = () => {
               >
                 Thêm vào lịch
               </button>
-              <button className="btn btn-outline">
+              <button
+                className="btn btn-outline"
+                onClick={() => openGoogleMaps(mainWedding)}
+              >
                 Xem bản đồ
               </button>
             </div>
@@ -87,7 +102,10 @@ const WeddingEvents = () => {
                   >
                     Thêm vào lịch
                   </button>
-                  <button className="btn btn-outline">
+                  <button
+                    className="btn btn-outline"
+                    onClick={() => openGoogleMaps(event)}
+                  >
                     Xem bản đồ
                   </button>
                 </div>

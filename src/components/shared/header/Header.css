@@ -29,6 +29,17 @@
   color: #d4af37;
 }
 
+.logo-image {
+  height: 3rem;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
 .logo-text {
   display: inline-block;
   padding: 0.5rem 1rem;

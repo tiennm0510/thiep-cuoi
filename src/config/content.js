@@ -27,25 +27,28 @@ const weddingContent = {
     id: 0,
     title: "LỄ THÀNH HÔN",
     time: "13:00 Ngày 12/10/2025",
-    location: "Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
-    type: "main-ceremony"
+    location: "Số 54, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+    type: "main-ceremony",
+    mapUrl: "https://maps.app.goo.gl/ugK3zuyXEMYDZvxLA"
   },
 
   eventsWedding: [
     {
       id: 1,
-      title: "TIỆC CƯỚI NHÀ GÁI",
-      time: "16:00 11/10/2025",
-      location: "Số 1, Ngõ 6, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
-      type: "reception"
-    },
-    {
-      id: 2,
       title: "TIỆC CƯỚI NHÀ TRAI",
       time: "16:00 11/10/2025",
       location: "Số 54, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
-      type: "reception"
-    }
+      type: "reception",
+      mapUrl: "https://maps.app.goo.gl/ugK3zuyXEMYDZvxLA"
+    },
+    {
+      id: 2,
+      title: "TIỆC CƯỚI NHÀ GÁI",
+      time: "16:00 11/10/2025",
+      location: "Số 1, Ngõ 6, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+      type: "reception",
+      mapUrl: "https://maps.app.goo.gl/86QDQU3aBhxNxJ8D6"
+    },
   ],
 
   // Hero section
@@ -214,19 +217,20 @@ const weddingContent = {
     title: "Hộp mừng cưới",
     subtitle: "Cảm ơn bạn đã dành thời gian tham dự đám cưới của chúng tôi!",
     message: "Sự hiện diện của bạn trong ngày trọng đại là món quà ý nghĩa nhất với chúng tôi. Nếu bạn muốn gửi lời chúc mừng, chúng tôi xin chân thành cảm ơn!",
+    floral: "/images/qr-code/floral-transparent.png",
     groom: {
       title: "Mừng cưới đến chú rể",
-      bankName: "Techcombank",
-      accountName: "Nguyen Van Thang",
-      accountNumber: "89989123456789",
-      qrCode: "/images/qr-groom.png"
+      bankName: "VIB",
+      accountName: "Nguyễn Mạnh Tiến",
+      accountNumber: "002755839",
+      qrCode: "/images/qr-code/groom.jpeg"
     },
     bride: {
       title: "Mừng cưới đến cô dâu",
-      bankName: "Techcombank",
-      accountName: "Kieu Thi Huong",
-      accountNumber: "38389123456789",
-      qrCode: "/images/qr-bride.png"
+      bankName: "TP Bank",
+      accountName: "Nguyễn Thị Linh Giang",
+      accountNumber: "0000 4022 857",
+      qrCode: "/images/qr-code/bride.jpeg"
     }
   },
 

@@ -27,7 +27,7 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-text">T 💕 G</span>
+            <img src="/images/logo.png" alt="T & G" className="logo-image" />
           </div>
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
