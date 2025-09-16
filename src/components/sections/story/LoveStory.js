@@ -14,22 +14,41 @@ const LoveStory = () => {
             {loveStories.subtitle}
         </p>
         
-        <div className="timeline-wrapper">
-          <div className="timeline">
-            {loveStories.timeline.map((story, index) => (
-              <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                <div className="timeline-content">
-                  <div className="story-image">
-                    <img src={story.image} alt={story.title} />
-                  </div>
-                  <div className="story-text">
-                    <h3 className="story-title">{story.title}</h3>
-                    <p className="story-date">{story.date}</p>
-                    <p className="story-content">{story.description}</p>
+        <div className="timeline-view-container">
+          <div className="timeline-wrapper">
+            <div className="timeline" id="timeline-container">
+              {loveStories.timeline.map((story, index) => (
+                <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                  <div className="timeline-content">
+                    <div className="story-image">
+                      <img src={story.image} alt={story.title} />
+                    </div>
+                    <div className="story-text">
+                      <h3 className="story-title">{story.title}</h3>
+                      <p className="story-date">{story.date}</p>
+                      <p className="story-content">{story.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          <div className="timeline-scroll-controls">
+            <button
+              className="timeline-scroll-btn timeline-scroll-top"
+              onClick={() => document.getElementById('timeline-container').scrollTo({top: 0, behavior: 'smooth'})}
+            >
+              <i className="fas fa-chevron-up"></i>
+            </button>
+            <button
+              className="timeline-scroll-btn timeline-scroll-bottom"
+              onClick={() => {
+                const container = document.getElementById('timeline-container');
+                container.scrollTo({top: container.scrollHeight, behavior: 'smooth'});
+              }}
+            >
+              <i className="fas fa-chevron-down"></i>
+            </button>
           </div>
         </div>
         

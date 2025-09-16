@@ -241,25 +241,9 @@ const PhotoGallery = () => {
               </div>
             </div>
           ) : (
-            <div className={`grid-container ${isTransitioning ? 'transitioning' : ''}`} id="grid-container">
-              <div className="scroll-controls">
-                <button
-                  className="scroll-btn scroll-top"
-                  onClick={() => document.getElementById('grid-container').scrollTo({top: 0, behavior: 'smooth'})}
-                >
-                  <i className="fas fa-chevron-up"></i>
-                </button>
-                <button
-                  className="scroll-btn scroll-bottom"
-                  onClick={() => {
-                    const container = document.getElementById('grid-container');
-                    container.scrollTo({top: container.scrollHeight, behavior: 'smooth'});
-                  }}
-                >
-                  <i className="fas fa-chevron-down"></i>
-                </button>
-              </div>
-              <div className="grid-wrapper">
+            <div className="grid-view-container">
+              <div className={`grid-container ${isTransitioning ? 'transitioning' : ''}`} id="grid-container">
+                <div className="grid-wrapper">
                 {galleryImages.map((image, index) => {
                   const orientation = imageOrientations[image.id]?.orientation || 'unknown';
                   const aspectRatio = imageOrientations[image.id]?.aspectRatio || 1;
@@ -286,6 +270,24 @@ const PhotoGallery = () => {
                     </div>
                   );
                 })}
+                </div>
+              </div>
+              <div className="scroll-controls">
+                <button
+                  className="scroll-btn scroll-top"
+                  onClick={() => document.getElementById('grid-container').scrollTo({top: 0, behavior: 'smooth'})}
+                >
+                  <i className="fas fa-chevron-up"></i>
+                </button>
+                <button
+                  className="scroll-btn scroll-bottom"
+                  onClick={() => {
+                    const container = document.getElementById('grid-container');
+                    container.scrollTo({top: container.scrollHeight, behavior: 'smooth'});
+                  }}
+                >
+                  <i className="fas fa-chevron-down"></i>
+                </button>
               </div>
             </div>
           )}
@@ -303,7 +305,6 @@ const PhotoGallery = () => {
               height="315"
               src="https://www.youtube.com/embed/E5AnGQC4vq0?si=MfG6SXB0rslft3CH"
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
