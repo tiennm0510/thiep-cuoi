@@ -18,7 +18,7 @@ const weddingContent = {
       fullName: "Nguyễn Thị Linh Giang",
         family: {
             father: "",
-            mother: "Khuất Thị Liên"
+            mother: "Nguyễn Thị Liên"
         },
       image: "/images/bride.jpg"
     }
@@ -37,7 +37,7 @@ const weddingContent = {
       id: 1,
       title: "TIỆC CƯỚI NHÀ TRAI",
       time: "16:00 11/10/2025",
-      location: "Số 54, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+      location: "Số 54, Xóm Phú Mãn, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
       type: "reception",
       mapUrl: "https://maps.app.goo.gl/ugK3zuyXEMYDZvxLA"
     },
@@ -45,7 +45,7 @@ const weddingContent = {
       id: 2,
       title: "TIỆC CƯỚI NHÀ GÁI",
       time: "16:00 11/10/2025",
-      location: "Số 1, Ngõ 6, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+      location: "Số 1, Ngõ 9, Xóm Phú Mãn, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
       type: "reception",
       mapUrl: "https://maps.app.goo.gl/86QDQU3aBhxNxJ8D6"
     },
@@ -82,24 +82,59 @@ const weddingContent = {
       },
       {
         id: 2,
-        date: "Tháng 8, 2020",
+        date: "Tháng 4, 2024",
         title: "Hẹn hò đầu tiên",
-        description: "Buổi hẹn đầu tiên tại công viên Tao Đàn, chúng tôi đã trò chuyện suốt cả ngày mà không cảm thấy mệt mỏi.",
+        description: "Chúng tôi có buổi hẹn hò đầu tiên. Cùng nhau dạo chơi, trò chuyện và tìm hiểu về nhau, chúng tôi cảm thấy rất thoải mái và vui vẻ.",
         image: "/images/story/2.jpg"
       },
       {
         id: 3,
-        date: "Tháng 2, 2022",
-        title: "Lời cầu hôn",
-        description: "Trên bãi biển Vũng Tàu, dưới ánh hoàng hôn, anh đã quỳ xuống và cầu hôn em. Đó là khoảnh khắc hạnh phúc nhất trong đời em.",
+        date: "Tháng 6, 2024",
+        title: "Lời tỏ tình",
+        description: "Một buổi tối đầu thu, gió mùa hiu hiu thôi. Anh đã ngỏ lời yêu em dưới ánh đèn vàng ấm áp. Em đã đồng ý và từ đó, chúng tôi chính thức trở thành một cặp đôi.",
         image: "/images/story/3.jpg"
       },
       {
         id: 4,
-        date: "Tháng 12, 2024",
-        title: "Đám cưới",
-        description: "Và bây giờ, chúng tôi sẽ chính thức trở thành vợ chồng, bước vào cuộc sống mới với nhiều yêu thương.",
+        date: "Tháng 10, 2024",
+        title: "Cuộc nói chuyện ý nghĩa",
+        description: "Thời gian yêu nhau, có những kỷ niệm vui, cũng không ít lần cãi vã. Nhưng rồi chúng tôi nhận ra rằng, điều quan trọng nhất là sự thấu hiểu và tôn trọng lẫn nhau. Chúng tôi hẹn nhau sang năm làm đám cưới khi em bước qua sinh nhật tuổi 24.",
         image: "/images/story/4.jpg"
+      },
+      {
+        id: 5,
+        date: "Tháng 1, 2025",
+        title: "Lần đầu ra mắt gia đình",
+        description: "Một ngày sau Tết dương lịch. Tôi quyết định sẽ qua nhà gặp mẹ em để xin phép được tìm hiểu em. Dù có chút lo lắng, nhưng mọi chuyện diễn ra rất suôn sẻ và ấm áp.",
+        image: "/images/story/5.jpg"
+      },
+      {
+        id: 6,
+        date: "Tháng 2, 2025",
+        title: "Tết Nguyên Đán",
+        description: "Tết năm nay thật là ý nghĩa khi chúng tôi được đón Tết cùng gia đình hai bên. Những bữa cơm sum vầy, những câu chuyện rôm rả đã làm cho tình cảm của chúng tôi thêm gắn bó. Tôi đưa em gặp mặt gia đình tôi, em cùng tôi đi thăm gia đình của em.",
+        image: "/images/story/6.jpg"
+      },
+      {
+        id: 7,
+        date: "Tháng 5, 2025",
+        title: "Lời cầu hôn",
+        description: "Một buổi tối nhẹ nhàng, tại nơi ngày xưa chúng tôi nói lời yêu. Anh ghé tai thỏ thẻ, ngỏ lời cầu hôn em. Em đã xúc động và đồng ý. Chúng tôi quyết định sẽ cùng nhau xây dựng một tương lai hạnh phúc.",
+        image: "/images/story/6.jpg"
+      },
+      {
+        id: 7,
+        date: "Tháng 6, 2025",
+        title: "Lễ dạm ngõ",
+        description: "Sau khi được sự đồng ý của gia đình hai bên, chúng tôi đã tổ chức lễ dạm ngõ. Đây là bước quan trọng để chúng tôi chính thức trở thành vợ chồng trong tương lai gần. Chiếc nhẫn cầu hôn được đeo vào tay em như minh chứng cho lời hứa trọn đời bên nhau.",
+        image: "/images/story/7.jpg"
+      },
+      {
+        id: 8,
+        date: "Tháng 10, 2025",
+        title: "Lễ thành hôn",
+        description: "Ngày trọng đại đã đến, chúng tôi sẽ cùng nhau bước vào lễ thành hôn, bắt đầu một hành trình mới với nhiều thử thách và niềm vui. Chúng tôi rất mong được sự chúc phúc từ gia đình và bạn bè.",
+        image: "/images/story/7.jpg"
       }
     ]
   },
@@ -141,7 +176,7 @@ const weddingContent = {
   photoGallery: {
     title: "Album Ảnh Cưới",
     subtitle: "Những khoảnh khắc đẹp nhất của chúng tôi",
-    total: 12,
+    total: 30,
     photo_link: "/images/gallery"
   },
 
