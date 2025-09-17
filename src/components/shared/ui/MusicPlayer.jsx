@@ -287,13 +287,13 @@ const MusicPlayer = () => {
             </div>
 
             <div className="player-controls">
-              <button className="control-btn" onClick={prevTrack}>
+              <button className="music-control-btn" onClick={prevTrack}>
                 <i className="fas fa-step-backward"></i>
               </button>
-              <button className="control-btn play-btn" onClick={togglePlayPause}>
+              <button className="music-control-btn play-btn" onClick={togglePlayPause}>
                 <i className={`fas ${isPlaying ? (hasUserInteracted ? 'fa-pause' : 'fa-volume-mute') : 'fa-play'}`}></i>
               </button>
-              <button className="control-btn" onClick={nextTrack}>
+              <button className="music-control-btn" onClick={nextTrack}>
                 <i className="fas fa-step-forward"></i>
               </button>
               <button

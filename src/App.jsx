@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import './App.css';
 import Header from './components/shared/header/Header';
 import Hero from './components/sections/hero/Hero';
 import Couple from './components/sections/couple/Couple';
 import LoveStory from './components/sections/story/LoveStory';
 import WeddingEvents from './components/sections/events/WeddingEvents';
-import PhotoGallery from './components/sections/gallery/PhotoGallery';
 import GiftBox from './components/sections/giftbox/GiftBox';
 import RSVP from './components/sections/rsvp/RSVP';
 import Footer from './components/shared/footer/Footer';
-import MusicPlayer from './components/shared/ui/MusicPlayer';
 import FloatingFlowers from './components/shared/ui/FloatingFlowers';
 import LoadingScreen from './components/shared/loading/LoadingScreen';
+import ComponentLoading from './components/shared/loading/ComponentLoading';
+
+// Lazy load heavy components
+const PhotoGallery = React.lazy(() => import('./components/sections/gallery/PhotoGallery'));
+const MusicPlayer = React.lazy(() => import('./components/shared/ui/MusicPlayer'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +40,11 @@ function App() {
     <div className="App">
       <LoadingScreen isLoading={isLoading} fadeOut={fadeOut} />
 
-      {!isLoading && <MusicPlayer />}
+      {!isLoading && (
+        <Suspense fallback={<ComponentLoading message="Đang tải nhạc..." />}>
+          <MusicPlayer />
+        </Suspense>
+      )}
       {!isLoading && <FloatingFlowers />}
 
       {!isLoading && (
@@ -47,7 +54,9 @@ function App() {
           <Couple />
           <WeddingEvents />
           <LoveStory />
-          <PhotoGallery />
+          <Suspense fallback={<ComponentLoading message="Đang tải thư viện ảnh..." />}>
+            <PhotoGallery />
+          </Suspense>
           <GiftBox />
           <RSVP />
           <Footer />
