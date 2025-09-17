@@ -10,13 +10,11 @@ const PhotoGallery = () => {
   const [viewMode, setViewMode] = useState('slideshow'); // 'slideshow' or 'grid'
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [imageOrientations, setImageOrientations] = useState({});
-  const [loadedImages, setLoadedImages] = useState(new Set());
   const [showVideo, setShowVideo] = useState(false);
 
   // Refs for DOM manipulation
   const gridContainerRef = useRef(null);
   const portalTargetRef = useRef(null);
-  const imageLoadingRefs = useRef(new Map());
   const videoSectionRef = useRef(null);
 
   // Create portal target for modal using ref
@@ -38,38 +36,21 @@ const PhotoGallery = () => {
   const { photoGallery } = weddingContent;
   const total = photoGallery.total;
 
-  // Optimized image orientation detection with cleanup
-  const detectImageOrientation = useCallback((imageSrc, imageId) => {
-    // Cancel previous loading for this image
-    const existingImg = imageLoadingRefs.current.get(imageId);
-    if (existingImg) {
-      existingImg.onload = null;
-      existingImg.onerror = null;
-    }
-
-    const img = new Image();
-    imageLoadingRefs.current.set(imageId, img);
-
-    img.onload = () => {
-      const orientation = img.width > img.height ? 'landscape' : 'portrait';
+  // Handle image load event to detect orientation
+  const handleImageLoad = useCallback((event, imageId) => {
+    const img = event.target;
+    if (img && img.naturalWidth && img.naturalHeight) {
+      const orientation = img.naturalWidth > img.naturalHeight ? 'landscape' : 'portrait';
       setImageOrientations(prev => ({
         ...prev,
         [imageId]: {
           orientation,
-          aspectRatio: img.width / img.height,
-          width: img.width,
-          height: img.height
+          aspectRatio: img.naturalWidth / img.naturalHeight,
+          width: img.naturalWidth,
+          height: img.naturalHeight
         }
       }));
-      setLoadedImages(prev => new Set([...prev, imageId]));
-      imageLoadingRefs.current.delete(imageId);
-    };
-
-    img.onerror = () => {
-      imageLoadingRefs.current.delete(imageId);
-    };
-
-    img.src = imageSrc;
+    }
   }, []);
 
   // Auto-play slideshow
@@ -83,28 +64,6 @@ const PhotoGallery = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying, total]);
 
-  // Load images progressively - only load visible and nearby images
-  useEffect(() => {
-    const loadImagesAround = (centerIndex, range = 2) => {
-      const start = Math.max(1, centerIndex + 1 - range);
-      const end = Math.min(total, centerIndex + 1 + range);
-
-      for (let i = start; i <= end; i++) {
-        if (!loadedImages.has(i)) {
-          const imageSrc = photoGallery.photo_link + "/" + i + ".jpg";
-          detectImageOrientation(imageSrc, i);
-        }
-      }
-    };
-
-    // Load current slide and nearby slides
-    loadImagesAround(currentSlide);
-
-    // In grid mode, load a few more images
-    if (viewMode === 'grid') {
-      loadImagesAround(currentSlide, 5);
-    }
-  }, [currentSlide, viewMode, total, photoGallery.photo_link, detectImageOrientation, loadedImages]);
 
   // Lazy load video when section becomes visible
   useEffect(() => {
@@ -133,13 +92,6 @@ const PhotoGallery = () => {
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      // Cancel all pending image loads
-      imageLoadingRefs.current.forEach(img => {
-        img.onload = null;
-        img.onerror = null;
-      });
-      imageLoadingRefs.current.clear();
-
       // Cleanup portal
       if (portalTargetRef.current && portalTargetRef.current.parentNode) {
         portalTargetRef.current.parentNode.removeChild(portalTargetRef.current);
@@ -242,7 +194,12 @@ const PhotoGallery = () => {
                           className={`slide slide-${orientation}`}
                           data-aspect-ratio={aspectRatio}
                         >
-                          <img src={image.src} alt={image.alt} loading="lazy" />
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            loading="lazy"
+                            onLoad={(e) => handleImageLoad(e, image.id)}
+                          />
                           <div className="slide-overlay" onClick={openFullscreen}>
                             <div className="slide-icon">
                               <i className="fas fa-search-plus"></i>
@@ -290,16 +247,29 @@ const PhotoGallery = () => {
                 </div>
 
                 {/* Thumbnail navigation */}
-                <div className="thumbnail-nav">
-                  {galleryImages.map((image, index) => (
-                    <div
-                      key={image.id}
-                      className={`thumbnail ${index === currentSlide ? 'active' : ''}`}
-                      onClick={() => goToSlide(index)}
-                    >
-                      <img src={image.src} alt={image.alt} loading="lazy" />
-                    </div>
-                  ))}
+                <div className="thumbnail-nav-container">
+                  <button className="thumbnail-nav-btn thumbnail-prev" onClick={prevSlide}>
+                    <i className="fas fa-chevron-left"></i>
+                  </button>
+                  <div className="thumbnail-nav">
+                    {galleryImages.map((image, index) => (
+                      <div
+                        key={image.id}
+                        className={`thumbnail ${index === currentSlide ? 'active' : ''}`}
+                        onClick={() => goToSlide(index)}
+                      >
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          onLoad={(e) => handleImageLoad(e, image.id)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <button className="thumbnail-nav-btn thumbnail-next" onClick={nextSlide}>
+                    <i className="fas fa-chevron-right"></i>
+                  </button>
                 </div>
               </div>
             ) : (
@@ -323,7 +293,12 @@ const PhotoGallery = () => {
                             openFullscreen();
                           }}
                         >
-                          <img src={image.src} alt={image.alt} loading="lazy" />
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            loading="lazy"
+                            onLoad={(e) => handleImageLoad(e, image.id)}
+                          />
                           <div className="grid-overlay">
                             <div className="grid-icon">
                               <i className="fas fa-search-plus"></i>
@@ -399,6 +374,7 @@ const PhotoGallery = () => {
                 src={galleryImages[currentSlide].src}
                 alt={galleryImages[currentSlide].alt}
                 loading="lazy"
+                onLoad={(e) => handleImageLoad(e, galleryImages[currentSlide].id)}
               />
               <button className="fullscreen-nav fullscreen-prev" onClick={prevSlide}>
                 <i className="fas fa-chevron-left"></i>
