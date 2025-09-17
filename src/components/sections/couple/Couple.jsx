@@ -17,7 +17,7 @@ const Couple = () => {
         <div className="couple-content">
           <div className="couple-member groom">
             <div className="member-image">
-              <img src={couple.groom.image} alt={`Chú rể - ${couple.groom.name}`} />
+              <img src={couple.groom.image} alt={`Chú rể - ${couple.groom.name}`} loading="lazy" />
             </div>
               <div className="member-info">
                 <h3 className="member-role">Groom</h3>
@@ -33,7 +33,7 @@ const Couple = () => {
 
             <div className="couple-member bride">
             <div className="member-image">
-              <img src={couple.bride.image} alt={`Cô dâu - ${couple.bride.name}`} />
+              <img src={couple.bride.image} alt={`Cô dâu - ${couple.bride.name}`} loading="lazy" />
             </div>
               <div className="member-info">
                 <h3 className="member-role">Bride</h3>

@@ -22,7 +22,7 @@ const Bridesmaids = () => {
               {weddingParty.bridesmaids.map((person) => (
                 <div key={person.id} className="party-member">
                   <div className="member-image">
-                    <img src={person.image} alt={person.name} />
+                    <img src={person.image} alt={person.name} loading="lazy" />
                   </div>
                   <div className="member-info">
                     <h4 className="member-name">{person.name}</h4>
@@ -41,7 +41,7 @@ const Bridesmaids = () => {
               {weddingParty.groomsmen.map((person) => (
                 <div key={person.id} className="party-member">
                   <div className="member-image">
-                    <img src={person.image} alt={person.name} />
+                    <img src={person.image} alt={person.name} loading="lazy" />
                   </div>
                   <div className="member-info">
                     <h4 className="member-name">{person.name}</h4>

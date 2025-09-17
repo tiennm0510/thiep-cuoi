@@ -180,7 +180,7 @@ const PhotoGallery = () => {
                           className={`slide slide-${orientation}`}
                           data-aspect-ratio={aspectRatio}
                         >
-                          <img src={image.src} alt={image.alt} />
+                          <img src={image.src} alt={image.alt} loading="lazy" />
                           <div className="slide-overlay" onClick={openFullscreen}>
                             <div className="slide-icon">
                               <i className="fas fa-search-plus"></i>
@@ -235,7 +235,7 @@ const PhotoGallery = () => {
                       className={`thumbnail ${index === currentSlide ? 'active' : ''}`}
                       onClick={() => goToSlide(index)}
                     >
-                      <img src={image.src} alt={image.alt} />
+                      <img src={image.src} alt={image.alt} loading="lazy" />
                     </div>
                   ))}
                 </div>
@@ -261,7 +261,7 @@ const PhotoGallery = () => {
                             openFullscreen();
                           }}
                         >
-                          <img src={image.src} alt={image.alt} />
+                          <img src={image.src} alt={image.alt} loading="lazy" />
                           <div className="grid-overlay">
                             <div className="grid-icon">
                               <i className="fas fa-search-plus"></i>
@@ -325,6 +325,7 @@ const PhotoGallery = () => {
               <img
                 src={galleryImages[currentSlide].src}
                 alt={galleryImages[currentSlide].alt}
+                loading="lazy"
               />
               <button className="fullscreen-nav fullscreen-prev" onClick={prevSlide}>
                 <i className="fas fa-chevron-left"></i>

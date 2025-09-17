@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 import weddingContent from '../../../config/content';
 
@@ -11,6 +11,8 @@ const Hero = () => {
     minutes: 0,
     seconds: 0
   });
+  const [imagesLoaded, setImagesLoaded] = useState({});
+  const heroRef = useRef(null);
 
   // Countdown timer
   useEffect(() => {
@@ -35,6 +37,50 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Lazy load background images
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Preload first image immediately
+            const firstImage = new Image();
+            firstImage.onload = () => {
+              setImagesLoaded(prev => ({ ...prev, 0: true }));
+            };
+            firstImage.src = backgroundImages[0];
+
+            // Preload other images gradually
+            backgroundImages.forEach((imageUrl, index) => {
+              if (index > 0) {
+                setTimeout(() => {
+                  const img = new Image();
+                  img.onload = () => {
+                    setImagesLoaded(prev => ({ ...prev, [index]: true }));
+                  };
+                  img.src = imageUrl;
+                }, index * 500);
+              }
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, [backgroundImages]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
@@ -44,13 +90,16 @@ const Hero = () => {
   }, [backgroundImages.length]);
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       <div className="hero-slideshow">
         {backgroundImages.map((image, index) => (
           <div
             key={index}
             className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${image})` }}
+            style={{
+              backgroundImage: imagesLoaded[index] ? `url(${image})` : 'none',
+              backgroundColor: !imagesLoaded[index] ? '#f0f0f0' : 'transparent'
+            }}
           ></div>
         ))}
       </div>
