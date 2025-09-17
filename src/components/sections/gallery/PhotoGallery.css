@@ -1025,10 +1025,9 @@
   max-width: 800px;
   height: 450px;
   margin: 0 auto;
-  border-radius: 15px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  background: #000;
+  box-shadow: none;
 }
 
 .video-container iframe {
