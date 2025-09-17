@@ -269,6 +269,39 @@ const weddingContent = {
     }
   },
 
+  // Preloading configuration
+  preloader: {
+    minLoadingTime: 3000, // Tối thiểu 3 giây
+    fadeOutDuration: 500, // 500ms fade out
+    assetsToPreload: [
+      // Hero backgrounds
+      { key: 'hero-bg', type: 'image', url: '/images/hero-bg/bg.jpg' },
+      { key: 'hero-bg-1', type: 'image', url: '/images/hero-bg/1.jpg' },
+      { key: 'hero-bg-2', type: 'image', url: '/images/hero-bg/2.jpg' },
+
+      // Couple photos
+      { key: 'bride', type: 'image', url: '/images/bride.jpg' },
+      { key: 'groom', type: 'image', url: '/images/groom.jpg' },
+
+      // Story photos (một số ảnh quan trọng)
+      { key: 'story-1', type: 'image', url: '/images/story/3.jpg' },
+      { key: 'story-2', type: 'image', url: '/images/story/4.jpg' },
+
+      // Gallery photos (một số ảnh đầu tiên)
+      { key: 'gallery-1', type: 'image', url: '/images/gallery/4.jpg' },
+      { key: 'gallery-2', type: 'image', url: '/images/gallery/6.jpg' },
+      { key: 'gallery-3', type: 'image', url: '/images/gallery/8.jpg' },
+
+      // Music
+      { key: 'music-1', type: 'audio', url: '/music/i-do.mp3' },
+      { key: 'music-2', type: 'audio', url: '/music/mot-doi.mp3' },
+
+      // QR codes
+      { key: 'qr-bride', type: 'image', url: '/images/qr-code/bride.jpeg' },
+      { key: 'qr-groom', type: 'image', url: '/images/qr-code/groom.jpeg' },
+    ]
+  },
+
   // Footer
   footer: {
     message: "Cảm ơn bạn đã ghé thăm trang web cưới của chúng tôi!",

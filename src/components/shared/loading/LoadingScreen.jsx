@@ -1,7 +1,7 @@
 import React from 'react';
 import './LoadingScreen.css';
 
-const LoadingScreen = ({ isLoading = true, fadeOut = false }) => {
+const LoadingScreen = ({ isLoading = true, fadeOut = false, progress = 0 }) => {
   if (!isLoading) return null;
 
   return (
@@ -25,13 +25,14 @@ const LoadingScreen = ({ isLoading = true, fadeOut = false }) => {
             <div className="ring-segment"></div>
             <div className="ring-segment"></div>
           </div>
-          <p className="loading-text">Đang chuẩn bị...</p>
+          <p className="loading-text">Đang chuẩn bị... {progress}%</p>
 
           {/* Progress bar */}
           <div className="progress-container">
             <div className="progress-bar">
-              <div className="progress-fill"></div>
+              <div className="progress-fill" style={{ width: `${progress}%` }}></div>
             </div>
+            <div className="progress-percentage">{progress}%</div>
           </div>
 
         </div>

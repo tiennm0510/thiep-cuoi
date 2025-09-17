@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 import Header from './components/shared/header/Header';
 import Hero from './components/sections/hero/Hero';
@@ -11,34 +11,18 @@ import Footer from './components/shared/footer/Footer';
 import FloatingFlowers from './components/shared/ui/FloatingFlowers';
 import LoadingScreen from './components/shared/loading/LoadingScreen';
 import ComponentLoading from './components/shared/loading/ComponentLoading';
+import useAppLoader from './hooks/useAppLoader';
 
 // Lazy load heavy components
 const PhotoGallery = React.lazy(() => import('./components/sections/gallery/PhotoGallery'));
 const MusicPlayer = React.lazy(() => import('./components/shared/ui/MusicPlayer'));
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setFadeOut(true); // Bắt đầu fade out loading
-
-      // Sau khi fade out xong, ẩn loading và hiện content
-      setTimeout(() => {
-        setIsLoading(false);
-        setShowContent(true);
-      }, 500); // 500ms cho fade out
-    }, 5000); // 8 seconds loading (3 seconds longer)
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { isLoading, fadeOut, showContent, loadingProgress } = useAppLoader();
 
   return (
     <div className="App">
-      <LoadingScreen isLoading={isLoading} fadeOut={fadeOut} />
+      <LoadingScreen isLoading={isLoading} fadeOut={fadeOut} progress={loadingProgress} />
 
       {!isLoading && (
         <Suspense fallback={<ComponentLoading message="Đang tải nhạc..." />}>
