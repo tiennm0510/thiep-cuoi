@@ -427,7 +427,7 @@
   margin: 0.5rem 0;
 }
 
-.control-btn {
+.music-control-btn {
   background: none;
   border: none;
   font-size: 1rem;
@@ -440,16 +440,17 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  color: #666;
+  color: #d4af37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.control-btn:hover {
+.music-control-btn:hover {
   background: rgba(212, 175, 55, 0.1);
   transform: scale(1.1);
   color: #d4af37;
 }
 
-.control-btn i {
+.music-control-btn i {
   display: block;
 }
 
@@ -889,7 +890,7 @@
     font-size: 0.75rem;
   }
   
-  .control-btn {
+  .music-control-btn {
     width: 32px;
     height: 32px;
     font-size: 0.9rem;
@@ -1164,7 +1165,7 @@
     font-size: 0.7rem;
   }
 
-  .control-btn {
+  .music-control-btn {
     width: 30px;
     height: 30px;
     font-size: 0.8rem;
