@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './LoveStory.css';
 import weddingContent from '../../../config/content'
 
 const { loveStories } = weddingContent;
 
 const LoveStory = () => {
+  const timelineContainerRef = useRef(null);
   return (
     <section id="story" className="love-story section">
       <div className="container">
@@ -16,7 +17,7 @@ const LoveStory = () => {
         
         <div className="timeline-view-container">
           <div className="timeline-wrapper">
-            <div className="timeline" id="timeline-container">
+            <div className="timeline" ref={timelineContainerRef}>
               {loveStories.timeline.map((story, index) => (
                 <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
                   <div className="timeline-content">
@@ -36,15 +37,17 @@ const LoveStory = () => {
           <div className="timeline-scroll-controls">
             <button
               className="timeline-scroll-btn timeline-scroll-top"
-              onClick={() => document.getElementById('timeline-container').scrollTo({top: 0, behavior: 'smooth'})}
+              onClick={() => timelineContainerRef.current?.scrollTo({top: 0, behavior: 'smooth'})}
             >
               <i className="fas fa-chevron-up"></i>
             </button>
             <button
               className="timeline-scroll-btn timeline-scroll-bottom"
               onClick={() => {
-                const container = document.getElementById('timeline-container');
-                container.scrollTo({top: container.scrollHeight, behavior: 'smooth'});
+                const container = timelineContainerRef.current;
+                if (container) {
+                  container.scrollTo({top: container.scrollHeight, behavior: 'smooth'});
+                }
               }}
             >
               <i className="fas fa-chevron-down"></i>

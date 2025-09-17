@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Hero.css';
 import weddingContent from '../../../config/content';
 
@@ -13,6 +13,7 @@ const Hero = () => {
   });
   const [imagesLoaded, setImagesLoaded] = useState({});
   const heroRef = useRef(null);
+  const imageLoadingRefs = useRef(new Map());
 
   // Countdown timer
   useEffect(() => {
@@ -37,29 +38,52 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Lazy load background images
+  // Optimized background image loading
+  const loadImage = useCallback((imageUrl, index) => {
+    // Cancel previous loading for this index
+    const existingImg = imageLoadingRefs.current.get(index);
+    if (existingImg) {
+      existingImg.onload = null;
+      existingImg.onerror = null;
+    }
+
+    const img = new Image();
+    imageLoadingRefs.current.set(index, img);
+
+    img.onload = () => {
+      setImagesLoaded(prev => ({ ...prev, [index]: true }));
+      imageLoadingRefs.current.delete(index);
+    };
+
+    img.onerror = () => {
+      imageLoadingRefs.current.delete(index);
+    };
+
+    img.src = imageUrl;
+  }, []);
+
+  // Lazy load background images with progressive loading
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Preload first image immediately
-            const firstImage = new Image();
-            firstImage.onload = () => {
-              setImagesLoaded(prev => ({ ...prev, 0: true }));
-            };
-            firstImage.src = backgroundImages[0];
+            // Load first image immediately
+            loadImage(backgroundImages[0], 0);
 
-            // Preload other images gradually
+            // Load next image after first one loads
+            setTimeout(() => {
+              if (backgroundImages[1]) {
+                loadImage(backgroundImages[1], 1);
+              }
+            }, 100);
+
+            // Load remaining images with longer delays
             backgroundImages.forEach((imageUrl, index) => {
-              if (index > 0) {
+              if (index > 1) {
                 setTimeout(() => {
-                  const img = new Image();
-                  img.onload = () => {
-                    setImagesLoaded(prev => ({ ...prev, [index]: true }));
-                  };
-                  img.src = imageUrl;
-                }, index * 500);
+                  loadImage(imageUrl, index);
+                }, index * 800 + 500); // Increased delay for better performance
               }
             });
 
@@ -75,19 +99,31 @@ const Hero = () => {
     }
 
     return () => {
+      // Cleanup all pending image loads
+      imageLoadingRefs.current.forEach(img => {
+        img.onload = null;
+        img.onerror = null;
+      });
+      imageLoadingRefs.current.clear();
+
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
     };
-  }, [backgroundImages]);
+  }, [backgroundImages, loadImage]);
 
+  // Auto-advance slideshow only for loaded images
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
-    }, 4000); // Change image every 4 seconds
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % backgroundImages.length;
+        // Only advance if next image is loaded, otherwise stay on current
+        return imagesLoaded[next] ? next : prev;
+      });
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [backgroundImages.length]);
+  }, [backgroundImages.length, imagesLoaded]);
 
   return (
     <section className="hero" ref={heroRef}>
@@ -95,15 +131,22 @@ const Hero = () => {
         {backgroundImages.map((image, index) => (
           <div
             key={index}
-            className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+            className={`hero-slide ${index === currentSlide ? 'active' : ''} ${imagesLoaded[index] ? 'loaded' : 'loading'}`}
             style={{
               backgroundImage: imagesLoaded[index] ? `url(${image})` : 'none',
-              backgroundColor: !imagesLoaded[index] ? '#f0f0f0' : 'transparent'
+              backgroundColor: !imagesLoaded[index] ? '#f5f5f5' : 'transparent'
             }}
           ></div>
         ))}
       </div>
       <div className="hero-overlay"></div>
+
+      {/* Loading indicator for first image */}
+      {!imagesLoaded[0] && (
+        <div className="hero-loading">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
 
       <div className="hero-content">
         <div className="container">
