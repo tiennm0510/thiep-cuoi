@@ -49,8 +49,19 @@
 .photo-frame.main-photo {
   width: 200px;
   height: 200px;
-  border: 5px solid #d4af37;
+  border: 3px solid var(--color-white);
 }
+
+.photo-frame.groom-photo {
+  border: 5px solid var(--color-groom);
+  box-shadow: var(--shadow-groom);
+}
+
+.photo-frame.bride-photo {
+  border: 5px solid var(--color-bride);
+  box-shadow: var(--shadow-bride);
+}
+
 
 .photo-frame img {
   width: 100%;
@@ -62,7 +73,7 @@
 .thank-you-title {
   font-family: 'Dancing Script', cursive;
   font-size: 5rem;
-  color: #d4af37;
+  color: var(--color-primary);
   margin: 2rem 0 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 700;
@@ -104,7 +115,7 @@
 .footer-text h3 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.5rem;
-  color: #d4af37;
+  color: var(--color-white);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }

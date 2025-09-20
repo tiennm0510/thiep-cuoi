@@ -37,8 +37,8 @@
   height: 70px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-  border: 3px solid #d4af37;
+  box-shadow: var(--shadow-player);
+  border: 3px solid var(--color-primary);
   position: relative;
   overflow: hidden;
   display: block !important;
@@ -48,8 +48,8 @@
 
 .player-collapsed:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
-  border-color: #c19b2a;
+  box-shadow: var(--shadow-player);
+  border-color: var(--color-primary);
 }
 
 .player-collapsed:active {
@@ -131,7 +131,7 @@
 
 /* Nút playlist bên ngoài */
 .external-playlist-btn {
-  background: linear-gradient(135deg, #d4af37, #f4e4bc);
+  background: var(--gradient-primary);
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -147,8 +147,6 @@
 
 .external-playlist-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-  background: linear-gradient(135deg, #c19b2a, #e6d4a8);
 }
 
 .external-playlist-btn:active {
@@ -440,14 +438,13 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  color: #d4af37;
+  color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .music-control-btn:hover {
-  background: rgba(212, 175, 55, 0.1);
   transform: scale(1.1);
-  color: #d4af37;
+  color: var(--color-primary);
 }
 
 .music-control-btn i {
@@ -455,7 +452,7 @@
 }
 
 .play-btn {
-  background: linear-gradient(45deg, #d4af37, #f4e4bc);
+  background: var(--gradient-primary);
   color: white;
   font-size: 1.1rem;
   width: 45px;
@@ -492,13 +489,11 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  color: #666;
+  color: var(--color-primary);
 }
 
 .playlist-toggle-btn:hover {
-  background: rgba(212, 175, 55, 0.1);
   transform: scale(1.1);
-  color: #d4af37;
 }
 
 .playlist-toggle-btn i {
@@ -585,7 +580,7 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  background: var(--gradient-primary);
   border-radius: 2px;
   transition: width 0.1s ease;
 }
@@ -600,7 +595,7 @@
 .volume-slider {
   flex: 1;
   height: 4px;
-  background: #e0e0e0;
+  background: var(--color-primary);
   border-radius: 2px;
   outline: none;
   cursor: pointer;
@@ -611,7 +606,8 @@
   -webkit-appearance: none;
   width: 16px;
   height: 16px;
-  background: #d4af37;
+  background: var(--color-primary);
+  border: 1px solid var(--color-white);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -619,7 +615,8 @@
 .volume-slider::-moz-range-thumb {
   width: 16px;
   height: 16px;
-  background: #d4af37;
+  background: var(--color-primary);
+  border: 1px solid var(--color-white);
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -764,7 +761,7 @@
 }
 
 .playing {
-  color: #d4af37;
+  color: var(--color-primary);
   font-size: 1.2rem;
   animation: pulse 1.5s ease-in-out infinite;
 }

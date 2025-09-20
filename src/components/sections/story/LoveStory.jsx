@@ -22,7 +22,7 @@ const LoveStory = () => {
                 <div key={story.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
                   <div className="timeline-content">
                     <div className="story-image">
-                      <img src={story.image} alt={story.title} loading="lazy" />
+                      <img src={`/images/story/${story.name}.jpg`} alt={story.title} loading="lazy" />
                     </div>
                     <div className="story-text">
                       <h3 className="story-title">{story.title}</h3>

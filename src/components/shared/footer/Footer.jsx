@@ -11,13 +11,13 @@ const Footer = () => {
       <section className="thank-you-section">
         <div className="thank-you-content">
           <div className="couple-photos">
-            <div className="photo-frame">
+            <div className="photo-frame groom-photo">
               <img src={couple.groom.image} alt={couple.groom.name} />
             </div>
             <div className="photo-frame main-photo">
               <img src="/images/couple-main.jpg" alt="Couple" />
             </div>
-            <div className="photo-frame">
+            <div className="photo-frame bride-photo">
               <img src={couple.bride.image} alt={couple.bride.name} />
             </div>
           </div>

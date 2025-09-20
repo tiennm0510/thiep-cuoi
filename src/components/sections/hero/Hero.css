@@ -84,12 +84,15 @@
   font-size: 4.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #d4af37;
+  color: var(--color-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
+.couple-names .groom,.bride {
+  color: var(--color-white);
+}
 
 .wedding-date {
   font-size: 1.2rem;

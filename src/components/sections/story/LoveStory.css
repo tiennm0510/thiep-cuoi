@@ -58,7 +58,7 @@
 /* Firefox scrollbar */
 .timeline {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) rgba(212, 175, 55, 0.1);
+  scrollbar-color: var(--color-first-scrollbar) var(--color-second-scrollbar);
 }
 
 .timeline-item {

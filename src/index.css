@@ -7,8 +7,8 @@
   --font-mono: 'Courier New', monospace;
 
   /* Colors */
-  --color-primary: #d4af37;
-  --color-primary-light: #f4e4bc;
+  --color-primary: #eb1248;
+  --color-primary-light: #e06c89;
   --color-text: #333;
   --color-text-light: #666;
   --color-white: #ffffff;
@@ -17,10 +17,14 @@
   --color-border-light: #f0f0f0;
   --color-groom: #4a90e2;
   --color-bride: #e91e63;
+  --color-first-scrollbar: var(--color-primary) ;
+  --color-second-scrollbar: rgba(223, 125, 179, 0.1);
+  
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
   --gradient-divider: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  --gradient-groom-to-bride: linear-gradient(90deg, var(--color-groom), var(--color-bride));
 
   /* Spacing */
   --container-max-width: 1200px;
@@ -37,6 +41,10 @@
   --shadow-card-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
   --shadow-btn: 0 5px 15px rgba(212, 175, 55, 0.4);
   --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-groom: 0 10px 30px hsla(212, 75%, 58%, 0.5);
+  --shadow-bride: 0 10px 30px rgba(233, 30, 99, 0.3);
+  --shadow-player: 0 4px 20px rgba(235, 58, 111, 0.4);
+  --shadow-player-hover: 0 6px 25px rgba(235, 58, 111, 0.6);
 
   /* Transitions */
   --transition-default: transform 0.3s ease, box-shadow 0.3s ease;

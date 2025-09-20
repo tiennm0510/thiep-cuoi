@@ -153,7 +153,9 @@ const Hero = () => {
           <div className="hero-center-only">
             <div className="wedding-info">
               <h1 className="hero-title">We're Getting Married</h1>
-              <div className="couple-names">{couple.groom.name} & {couple.bride.name}</div>
+              <div className="couple-names">
+                <span className="groom">{couple.groom.name}</span> 💕 <span className="bride">{couple.bride.name}</span>
+              </div>
               <p className="wedding-date">{hero.date}</p>
 
               {/* Countdown Timer */}

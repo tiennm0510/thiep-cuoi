@@ -16,6 +16,7 @@ const PhotoGallery = () => {
   const gridContainerRef = useRef(null);
   const portalTargetRef = useRef(null);
   const videoSectionRef = useRef(null);
+  const thumbnailNavRef = useRef(null);
 
   // Create portal target for modal using ref
   const getPortalTarget = useCallback(() => {
@@ -115,6 +116,27 @@ const PhotoGallery = () => {
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
+  };
+
+  // Thumbnail navigation functions
+  const scrollThumbnailPrev = () => {
+    if (thumbnailNavRef.current) {
+      const scrollAmount = 200; // Adjust this value as needed
+      thumbnailNavRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollThumbnailNext = () => {
+    if (thumbnailNavRef.current) {
+      const scrollAmount = 200; // Adjust this value as needed
+      thumbnailNavRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const openFullscreen = () => {
@@ -248,10 +270,10 @@ const PhotoGallery = () => {
 
                 {/* Thumbnail navigation */}
                 <div className="thumbnail-nav-container">
-                  <button className="thumbnail-nav-btn thumbnail-prev" onClick={prevSlide}>
+                  <button className="thumbnail-nav-btn thumbnail-prev" onClick={scrollThumbnailPrev}>
                     <i className="fas fa-chevron-left"></i>
                   </button>
-                  <div className="thumbnail-nav">
+                  <div className="thumbnail-nav" ref={thumbnailNavRef}>
                     {galleryImages.map((image, index) => (
                       <div
                         key={image.id}
@@ -267,7 +289,7 @@ const PhotoGallery = () => {
                       </div>
                     ))}
                   </div>
-                  <button className="thumbnail-nav-btn thumbnail-next" onClick={nextSlide}>
+                  <button className="thumbnail-nav-btn thumbnail-next" onClick={scrollThumbnailNext}>
                     <i className="fas fa-chevron-right"></i>
                   </button>
                 </div>
