@@ -43,9 +43,9 @@ const Couple = () => {
           </div>
         </div>
 
-          <div className="rsvp-button">
+          {/* <div className="rsvp-button">
           <button className="btn">Xác nhận tham dự</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import weddingContent from '../../../config/content';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { navigation } = weddingContent;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,12 +34,9 @@ const Header = () => {
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
             <ul className="nav-list">
-              <li><button onClick={() => scrollToSection('couple')}>Cặp đôi</button></li>
-              <li><button onClick={() => scrollToSection('story')}>Chuyện tình yêu</button></li>
-              <li><button onClick={() => scrollToSection('events')}>Sự kiện cưới</button></li>                       
-              <li><button onClick={() => scrollToSection('gallery')}>Album hình cưới</button></li>                       
-              <li><button onClick={() => scrollToSection('giftbox')}>Hộp mừng cưới</button></li>
-              <li><button onClick={() => scrollToSection('rsvp')}>Lời chúc</button></li>
+              {navigation.map((item) => (
+                <li key={item.id}><button onClick={() => scrollToSection(item.id)}>{item.label}</button></li>
+              ))}
             </ul>
           </nav>
 

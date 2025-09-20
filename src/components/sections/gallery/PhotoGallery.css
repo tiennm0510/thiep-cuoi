@@ -494,15 +494,13 @@
   background: rgba(255, 255, 255, 0.9);
   color: #333;
   transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
 
 .control-btn.active {
   background: rgba(255, 255, 255, 0.9);
-  color: #d4af37;
+  color: var(--color-primary);
   opacity: 1;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
 .control-btn:active {
@@ -522,18 +520,18 @@
   height: 12px;
   border-radius: 50%;
   border: none;
-  background: rgba(212, 175, 55, 0.3);
+  background: var(--color-second-scrollbar);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .dot:hover {
-  background: rgba(212, 175, 55, 0.6);
+  background: var(--color-first-scrollbar);
   transform: scale(1.2);
 }
 
 .dot.active {
-  background: #d4af37;
+  background: var(--color-first-scrollbar);
   transform: scale(1.3);
 }
 
