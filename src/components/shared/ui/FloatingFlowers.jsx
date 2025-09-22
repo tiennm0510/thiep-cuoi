@@ -1,29 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import './FloatingFlowers.css';
 
+const symbols = ['🌸', '🍀', '☘️', '💕', '💞', '💖', '💗', '💘', '💝'];
+
+function countNumberOfFlowers() {
+  if (typeof window === 'undefined') return 25; // Default for SSR
+  
+  const width = window.innerWidth;
+  if (width < 480) return 6;      // Mobile nhỏ
+  if (width < 768) return 10;     // Mobile
+  if (width < 1024) return 20;
+  return 30;
+}
+
+function createFlower(id) {
+  const emoji = symbols[Math.floor(Math.random() * symbols.length)];
+  let type = 'flower';
+  if (['🍀', '☘️'].includes(emoji)) type = 'leaf';
+  else if (['💕', '💞', '💖', '💗', '💘', '💝', '❤️'].includes(emoji)) type = 'heart';
+
+  const animations = ['naturalFall', 'naturalFallWithSway', 'zigzagFall', 'heartFloat'];
+  const animationType = animations[Math.floor(Math.random() * animations.length)];
+
+  return {
+    id,
+    emoji,
+    type,
+    size: 0.25 + Math.random() * 0.65,
+    leftPosition: Math.random() * 100,
+    animationDelay: Math.random() * 1,
+    animationDuration: 6 + Math.random() * 12,
+    animationType,
+  };
+}
+
 const FloatingFlowers = () => {
   const [flowers, setFlowers] = useState([]);
 
-  useEffect(() => {
-    // Simple mix of cherry blossoms and hearts
-    const symbols = ['🌸', '🌸', '🌸', '🌸', '🌸', '🌸', '💕', '💕'];
-    const newFlowers = Array.from({ length: 25 }, (_, i) => ({
-      id: i,
-      emoji: symbols[Math.floor(Math.random() * symbols.length)], // Random emoji selection
-      size: 0.25 + Math.random() * 0.6, // Random size between 0.25 and 0.85 (half of original)
-      type: symbols[i % symbols.length] === '🌸' ? 'flower' : 'heart',
-      // Random horizontal position across full screen width
-      leftPosition: Math.random() * 100, // 0% to 100%
-      // Random animation delay
-      animationDelay: Math.random() * 10, // 0 to 10 seconds
-      // Random animation duration
-      animationDuration: 8 + Math.random() * 12, // 8 to 20 seconds
-      // Random animation type
-      animationType: Math.random() < 0.5 ? 'naturalFall' : 'naturalFallWithSway',
-    }));
-    setFlowers(newFlowers);
+  useEffect(() => {  
+    const numberOfFlowers = countNumberOfFlowers();
+    setFlowers(Array.from({ length: numberOfFlowers }, (_, i) => createFlower(i)));
   }, []);
 
+  const handleAnimationEnd = (id) => {
+    // Khi hoa rơi xong, tạo lại một bông mới ở vị trí khác
+    setFlowers((prev) =>
+      prev.map((flower) => (flower.id === id ? createFlower(id) : flower))
+    );
+  };
 
   return (
     <div className="global-floating-flowers">
@@ -37,8 +61,10 @@ const FloatingFlowers = () => {
             left: `${flower.leftPosition}%`,
             animationDelay: `${flower.animationDelay}s`,
             animationDuration: `${flower.animationDuration}s`,
-            animationName: flower.type === 'heart' ? 'heartFloat' : flower.animationType,
+            animationName: flower.animationType,
+            animationIterationCount: 1,
           }}
+          onAnimationEnd={() => handleAnimationEnd(flower.id)}
         >
           {flower.emoji}
         </div>
