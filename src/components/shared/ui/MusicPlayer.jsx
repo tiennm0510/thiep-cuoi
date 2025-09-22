@@ -172,6 +172,23 @@ const MusicPlayer = () => {
   }
 
   return (
+    <>
+    {/* Notification banner for unmuted audio */}
+    {!hasUserInteracted && isPlaying && (
+      <div className="audio-notification">
+        <div className="notification-content">
+          <i className="fas fa-volume-mute"></i>
+          <span>Nhạc đang phát không tiếng. Click bất kỳ đâu để bật âm thanh!</span>
+          <button
+            className="notification-close"
+            onClick={() => setHasUserInteracted(true)}
+          >
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    )}
+
     <div className="music-player">
       {/* Audio player cho tất cả tracks */}
       <audio
@@ -180,22 +197,6 @@ const MusicPlayer = () => {
         preload="metadata"
         muted
       />
-
-      {/* Notification banner for unmuted audio */}
-      {!hasUserInteracted && isPlaying && (
-        <div className="audio-notification">
-          <div className="notification-content">
-            <i className="fas fa-volume-mute"></i>
-            <span>Nhạc đang phát không tiếng. Click bất kỳ đâu để bật âm thanh!</span>
-            <button
-              className="notification-close"
-              onClick={() => setHasUserInteracted(true)}
-            >
-              <i className="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-      )}
 
       {!isExpanded ? (
         // Thu gọn - chỉ hiện biểu tượng
@@ -364,6 +365,7 @@ const MusicPlayer = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
