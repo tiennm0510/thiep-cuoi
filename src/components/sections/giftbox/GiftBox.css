@@ -1,5 +1,5 @@
 .giftbox {
-  background: var(--color-bg-section);
+  background: var(--color-white);
   position: relative;
   overflow: hidden;
 }

@@ -1,5 +1,5 @@
 .couple {
-  background: #fafafa;
+  background: var(--color-white);
 }
 
 .couple-content {
@@ -44,6 +44,10 @@
   font-size: 1.8rem !important;
   font-weight: 600 !important;
   margin-bottom: 0.5rem;
+}
+
+.member-info {  
+  height: 200px;
 }
   
 .groom {
