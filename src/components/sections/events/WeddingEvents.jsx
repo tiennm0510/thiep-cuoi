@@ -1,32 +1,31 @@
 import React from 'react';
 import './WeddingEvents.css';
-import weddingContent from '../../../config/content';
-
-const { mainWedding, eventsWedding } = weddingContent;
+import { mainWedding, eventsWedding } from '../../../config/content';
 
 
 const WeddingEvents = () => {
-  const addToCalendar = (event) => {
-    const eventData = {
-      name: `${event.title} (Đám cưới Mạnh Tiến và Linh Giang)`,
-      description: "Cảm ơn bạn đã dành thời gian tham dự đám cưới của chúng tôi!. Thông tin chi tiết xem tại website: https://giangtien1011.iwedding.info",
-      startDate: event.time.split(' ')[1],
-      endDate: event.time.split(' ')[1],
-      startTime: event.time.split(' ')[0] + ' ' + event.time.split(' ')[2],
-      endTime: event.time.split(' ')[0] + ' ' + event.time.split(' ')[2],
-      location: event.location,
-      options: ["Apple", "Google", "iCal", "Microsoft365", "MicrosoftTeams", "Outlook.com", "Yahoo"],
-      timeZone: "Asia/Ho_Chi_Minh",
-      iCalFileName: "Reminder-Event",
-      listStyle: "modal",
-      label: "Thêm vào lịch",
-      trigger: "click"
-    };
+  // chưa tích hợp được
+  // const addToCalendar = (event) => {
+  //   const eventData = {
+  //     name: `${event.title} (Đám cưới Mạnh Tiến và Linh Giang)`,
+  //     description: "Cảm ơn bạn đã dành thời gian tham dự đám cưới của chúng tôi!. Thông tin chi tiết xem tại website: https://giangtien1011.iwedding.info",
+  //     startDate: event.time.split(' ')[1],
+  //     endDate: event.time.split(' ')[1],
+  //     startTime: event.time.split(' ')[0] + ' ' + event.time.split(' ')[2],
+  //     endTime: event.time.split(' ')[0] + ' ' + event.time.split(' ')[2],
+  //     location: event.location,
+  //     options: ["Apple", "Google", "iCal", "Microsoft365", "MicrosoftTeams", "Outlook.com", "Yahoo"],
+  //     timeZone: "Asia/Ho_Chi_Minh",
+  //     iCalFileName: "Reminder-Event",
+  //     listStyle: "modal",
+  //     label: "Thêm vào lịch",
+  //     trigger: "click"
+  //   };
 
-    // This would integrate with a calendar library in a real implementation
-    console.log('Add to calendar:', eventData);
-    alert('Tính năng thêm vào lịch sẽ được tích hợp với thư viện calendar');
-  };
+  //   // This would integrate with a calendar library in a real implementation
+  //   console.log('Add to calendar:', eventData);
+  //   alert('Tính năng thêm vào lịch sẽ được tích hợp với thư viện calendar');
+  // };
 
   const openGoogleMaps = (event) => {
     if (event.mapUrl && event.mapUrl.trim() !== '') {
@@ -63,12 +62,12 @@ const WeddingEvents = () => {
             </div>
             
             <div className="event-actions">
-              <button 
+              {/* <button 
                 className="btn btn-outline"
                 onClick={() =>  addToCalendar(mainWedding)}
               >
                 Thêm vào lịch
-              </button>
+              </button> */}
               <button
                 className="btn btn-outline"
                 onClick={() => openGoogleMaps(mainWedding)}
@@ -97,12 +96,12 @@ const WeddingEvents = () => {
                 </div>
                 
                 <div className="event-actions">
-                  <button 
+                  {/* <button 
                     className="btn btn-outline"
                     onClick={() => addToCalendar(event)}
                   >
                     Thêm vào lịch
-                  </button>
+                  </button> */}
                   <button
                     className="btn btn-outline"
                     onClick={() => openGoogleMaps(event)}

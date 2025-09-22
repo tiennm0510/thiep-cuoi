@@ -152,7 +152,7 @@
 }
 
 .footer-links button:hover {
-  color: #d4af37;
+  color: var(--color-primary);
 }
 
 .footer-links button::before {
@@ -162,7 +162,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #d4af37;
+  background: var(--color-primary);
   transition: width 0.3s ease;
 }
 
@@ -196,7 +196,7 @@
 }
 
 .social-links a:hover {
-  color: #d4af37;
+  color: var(--color-primary);
   transform: scale(1.1);
 }
 

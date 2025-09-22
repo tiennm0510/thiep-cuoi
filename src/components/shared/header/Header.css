@@ -26,7 +26,7 @@
   font-family: 'Dancing Script', cursive;
   font-size: 1.5rem;
   font-weight: 00;
-  color: #d4af37;
+  color: var(--color-primary);
 }
 
 .logo-image {
@@ -66,7 +66,7 @@
 }
 
 .nav-list button:hover {
-  color: #d4af37;
+  color: var(--color-primary);
 }
 
 .mobile-menu-btn {

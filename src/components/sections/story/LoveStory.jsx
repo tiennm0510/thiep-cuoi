@@ -1,8 +1,6 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './LoveStory.css';
-import weddingContent from '../../../config/content'
-
-const { loveStories } = weddingContent;
+import { loveStories } from '../../../config/content';
 
 const LoveStory = () => {
   const timelineContainerRef = useRef(null);

@@ -1,9 +1,7 @@
-import React from 'react';
 import './GiftBox.css';
-import weddingContent from '../../../config/content';
+import { giftBox } from '../../../config/content';
 
 const GiftBox = () => {
-  const { giftBox } = weddingContent;
 
   return (
     <section id="giftbox" className="giftbox section">

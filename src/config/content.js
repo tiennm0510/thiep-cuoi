@@ -1,9 +1,6 @@
-// Wedding Website Content Configuration
-// Tập trung tất cả nội dung của website tại đây
+// các config cho trang
 
-const weddingContent = {
-  // Thông tin cặp đôi
-  couple: {
+export const couple = {
     groom: {
       name: "Mạnh Tiến",
       fullName: "Nguyễn Mạnh Tiến",
@@ -22,17 +19,18 @@ const weddingContent = {
         },
       image: "/images/bride.jpg"
     }
-  },
-  mainWedding: {
+};
+
+export const mainWedding = {
     id: 0,
     title: "LỄ THÀNH HÔN",
     time: "13:00 Ngày 12/10/2025",
-    location: "Số 54, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
+    location: "Số 54, Xóm Phú Mãn, Thôn Phúc Hòa 1, Xã Phúc Thọ, Tp. Hà Nội",
     type: "main-ceremony",
     mapUrl: "https://maps.app.goo.gl/ugK3zuyXEMYDZvxLA"
-  },
+};
 
-  eventsWedding: [
+export const eventsWedding = [
     {
       id: 1,
       title: "TIỆC CƯỚI NHÀ TRAI",
@@ -49,27 +47,23 @@ const weddingContent = {
       type: "reception",
       mapUrl: "https://maps.app.goo.gl/86QDQU3aBhxNxJ8D6"
     },
-  ],
+];
 
-  // Hero section
-  hero: {
+export const hero = {
     title: "Nguyễn Mạnh Tiến & Nguyễn Thị Linh Giang",
     subtitle: "Chúng tôi sẽ kết hôn!",
     date: "12 Tháng 10, 2025",
     location: "",
-  },
+};
 
-
-  // Background images for slideshow
-  backgroundImages: [
+export const backgroundImages = [
     '/images/hero-bg/1.jpg',
     '/images/hero-bg/2.jpg',
     '/images/hero-bg/3.jpg',
-    '/images/hero-bg/4.jpg'
-  ],
+    '/images/hero-bg/4.jpg',
+];
 
-  // Câu chuyện tình yêu
-  loveStories: {
+export const loveStories = {
     title: "Câu Chuyện Tình Yêu",
     subtitle: "Hành trình từ khi gặp gỡ đến khi quyết định về chung một nhà",
     timeline: [
@@ -99,7 +93,7 @@ const weddingContent = {
         name: "meeting-family",
         date: "Tháng 1, 2025",
         title: "Lần đầu ra mắt gia đình",
-        description: "Một ngày sau Tết dương lịch. Tôi quyết định sẽ qua nhà gặp mẹ em để xin phép được tìm hiểu em. Dù có chút lo lắng, nhưng mọi chuyện diễn ra rất suôn sẻ và ấm áp.",
+        description: "Một ngày sau Tết dương lịch. Anh và em quyết định sẽ qua nhà hai đữa để xin phép được tìm hiểu nhau. Dù có chút lo lắng, nhưng mọi chuyện diễn ra rất suôn sẻ và ấm áp.",
       },
       {
         id: 5,
@@ -123,51 +117,16 @@ const weddingContent = {
         description: "Ngày trọng đại đã đến, chúng tôi sẽ cùng nhau bước vào lễ thành hôn, bắt đầu một hành trình mới với nhiều thử thách và niềm vui. Chúng tôi rất mong được sự chúc phúc từ gia đình và bạn bè.",
       }
     ]
-  },
+};
 
-  // Sự kiện cưới
-  weddingEvents: {
-    title: "Sự Kiện Cưới",
-    subtitle: "Những khoảnh khắc đặc biệt trong ngày trọng đại",
-    events: [
-      {
-        id: 1,
-        type: "Lễ ăn hỏi",
-        date: "08:00 AM, 14/12/2024",
-        location: "Nhà gái - 123 Đường ABC, Quận 1, TP.HCM",
-        description: "Lễ ăn hỏi truyền thống theo phong tục Việt Nam",
-        icon: "🏮"
-      },
-      {
-        id: 2,
-        type: "Lễ cưới",
-        date: "10:00 AM, 15/12/2024",
-        location: "Nhà thờ Đức Bà - 01 Công xã Paris, Quận 1, TP.HCM",
-        description: "Lễ cưới trang trọng tại nhà thờ",
-        icon: "💒"
-      },
-      {
-        id: 3,
-        type: "Tiệc cưới",
-        date: "06:00 PM, 15/12/2024",
-        location: "Nhà hàng Golden Palace - 456 Đường XYZ, Quận 3, TP.HCM",
-        description: "Tiệc cưới ấm cúng cùng gia đình và bạn bè",
-        icon: "🍽️"
-      }
-    ]
-  },
-
-
-  // Album ảnh cưới
-  photoGallery: {
+export const photoGallery = {
     title: "Album Ảnh Cưới",
     subtitle: "Những khoảnh khắc đẹp nhất của chúng tôi",
     total: 30,
     photo_link: "/images/gallery"
-  },
+};
 
-  // RSVP
-  rsvp: {
+export const rsvp = {
     title: "Xác Nhận Tham Dự",
     subtitle: "Vui lòng cho chúng tôi biết bạn có thể tham dự không",
     message: "Sự hiện diện của bạn sẽ làm cho ngày cưới của chúng tôi trở nên ý nghĩa hơn!",
@@ -184,57 +143,40 @@ const weddingContent = {
       { value: "yes", label: "Có, tôi sẽ tham dự" },
       { value: "no", label: "Rất tiếc, tôi không thể tham dự" }
     ]
+};
+
+export const playlist = [
+  {
+    id: 1,
+    title: "I Do",
+    artist: "911",
+    src: "/music/i-do.mp3",
+    cover: "/images/music-cover/i-do.jpg"
   },
-
-  // Music playlist
-  music: {
-    title: "Nhạc Cưới",
-    subtitle: "Những bản nhạc yêu thích của chúng tôi",
-    playlist: [
-      {
-        id: 1,
-        title: "I Do",
-        artist: "911",
-        src: "/music/i-do.mp3",
-        cover: "/images/music-cover/i-do.jpg"
-      },
-      {
-        id: 2,
-        title: "Hạnh Phúc Cuối Cùng",
-        artist: "Trương Việt Thái",
-        src: "/music/hanh-phuc-cuoi-cung.mp3",
-        cover: "/images/music-cover/hanh-phuc-cuoi-cung.jpg"
-      },
-      {
-        id: 3,
-        title: "Ngày Cưới",
-        artist: "Khắc Việt",
-        src: "/music/ngay-cuoi.mp3",
-        cover: "/images/music-cover/ngay-cuoi.jpg"
-      },
-      {
-        id: 4,
-        title: "Một Đời",
-        artist: "14 Casper & Bon Nghiêm",
-        src: "/music/mot-doi.mp3",
-        cover: "/images/music-cover/mot-doi.jpg"
-      }
-    ]
+  {
+    id: 2,
+    title: "Hạnh Phúc Cuối Cùng",
+    artist: "Trương Việt Thái",
+    src: "/music/hanh-phuc-cuoi-cung.mp3",
+    cover: "/images/music-cover/hanh-phuc-cuoi-cung.jpg"
   },
+  {
+    id: 3,
+    title: "Ngày Cưới",
+    artist: "Khắc Việt",
+    src: "/music/ngay-cuoi.mp3",
+    cover: "/images/music-cover/ngay-cuoi.jpg"
+  },
+  {
+    id: 4,
+    title: "Một Đời",
+    artist: "14 Casper & Bon Nghiêm",
+    src: "/music/mot-doi.mp3",
+    cover: "/images/music-cover/mot-doi.jpg"
+  }
+];
 
-  // Navigation menu
-  navigation: [
-    { id: "home", label: "Trang chủ", href: "#home" },
-    { id: "couple", label: "Cặp đôi", href: "#couple" },
-    { id: "story", label: "Câu chuyện", href: "#story" },
-    { id: "events", label: "Sự kiện", href: "#events" },
-    { id: "gallery", label: "Album ảnh", href: "#gallery" },
-    { id: "giftbox", label: "Hộp mừng cưới", href: "#giftbox" },
-    // { id: "rsvp", label: "Lời chúc", href: "#rsvp" }
-  ],
-
-  // Hộp mừng cưới
-  giftBox: {
+export const giftBox = {
     title: "Hộp mừng cưới",
     subtitle: "Cảm ơn bạn đã dành thời gian tham dự đám cưới của chúng tôi!",
     message: "Sự hiện diện của bạn trong ngày trọng đại là món quà ý nghĩa nhất với chúng tôi. Nếu bạn muốn gửi lời chúc mừng, chúng tôi xin chân thành cảm ơn!",
@@ -253,10 +195,9 @@ const weddingContent = {
       accountNumber: "0000 4022 857",
       qrCode: "/images/qr-code/bride.jpeg"
     }
-  },
+};
 
-  // Preloading configuration
-  preloader: {
+export const preloader = {
     minLoadingTime: 3000, // Tối thiểu 3 giây
     fadeOutDuration: 500, // 500ms fade out
     assetsToPreload: [
@@ -286,25 +227,31 @@ const weddingContent = {
       { key: 'qr-bride', type: 'image', url: '/images/qr-code/bride.jpeg' },
       { key: 'qr-groom', type: 'image', url: '/images/qr-code/groom.jpeg' },
     ]
-  },
+}
 
-  // Footer
-  footer: {
-    message: "Cảm ơn bạn đã ghé thăm trang web cưới của chúng tôi!",
-    copyright: "2025 Mạnh Tiến & Linh Giang. Made with 💕 by Tiennm0510",
-    socialLinks: [
-      {
-        platform: "Facebook",
-        url: "https://facebook.com",
-        icon: "fab fa-facebook-f"
-      },
-      {
-        platform: "Instagram",
-        url: "https://instagram.com",
-        icon: "fab fa-instagram"
-      }
-    ]
-  }
+export const navigation = [
+    { id: "home", label: "Trang chủ", href: "#home" },
+    { id: "couple", label: "Cặp đôi", href: "#couple" },
+    { id: "story", label: "Câu chuyện", href: "#story" },
+    { id: "events", label: "Sự kiện", href: "#events" },
+    { id: "gallery", label: "Album ảnh", href: "#gallery" },
+    { id: "giftbox", label: "Hộp mừng cưới", href: "#giftbox" },
+    // { id: "rsvp", label: "Lời chúc", href: "#rsvp" }
+];
+
+export const footer = {
+  message: "Cảm ơn bạn đã ghé thăm trang web cưới của chúng tôi!",
+  copyright: "2025 Mạnh Tiến & Linh Giang. Made with 💕 by Tiennm0510",
+  socialLinks: [
+    {
+      platform: "Facebook",
+      url: "https://facebook.com",
+      icon: "fab fa-facebook-f"
+    },
+    {
+      platform: "Instagram",
+      url: "https://instagram.com",
+      icon: "fab fa-instagram"
+    }
+  ]
 };
-
-export default weddingContent;

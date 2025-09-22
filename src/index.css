@@ -19,6 +19,13 @@
   --color-bride: #e91e63;
   --color-first-scrollbar: var(--color-primary) ;
   --color-second-scrollbar: rgba(223, 125, 179, 0.1);
+  --color-primary-active: rgba(223, 92, 121, 0.3);
+  --color-primary-hover: rgba(223, 92, 121, 0.3);
+
+  /* Background */
+  --bg-rgb-primary: rgba(235, 18, 72, 0.9);
+  --bg-rgb-primary-light: rgba(224, 108, 137, 0.9);
+  --bg-rgb-primary-blur: rgba(235, 18, 72, 0.1);
   
 
   /* Gradients */
@@ -45,6 +52,9 @@
   --shadow-bride: 0 10px 30px rgba(233, 30, 99, 0.3);
   --shadow-player: 0 4px 20px rgba(235, 58, 111, 0.4);
   --shadow-player-hover: 0 6px 25px rgba(235, 58, 111, 0.6);
+  --shadow-play: 0 2px 10px rgba(212, 55, 120, 0.2);
+  --shadow-play-hover: 0 4px 15px rgba(212, 55, 120, 0.4);
+  --shadow-input: 0 0 0 3px rgba(235, 18, 72, 0.1);
 
   /* Transitions */
   --transition-default: transform 0.3s ease, box-shadow 0.3s ease;

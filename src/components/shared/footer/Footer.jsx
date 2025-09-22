@@ -1,10 +1,7 @@
-import React from 'react';
 import './Footer.css';
-import weddingContent from '../../../config/content';
+import { footer, navigation, hero, couple } from '../../../config/content';
 
 const Footer = () => {
-  const { footer, navigation, hero, couple } = weddingContent;
-
   return (
     <>
       {/* Thank you section */}

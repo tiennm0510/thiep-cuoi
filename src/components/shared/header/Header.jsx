@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import weddingContent from '../../../config/content';
+import { navigation } from '../../../config/content';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { navigation } = weddingContent;
 
   useEffect(() => {
     const handleScroll = () => {

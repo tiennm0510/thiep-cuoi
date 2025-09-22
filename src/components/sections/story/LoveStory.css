@@ -39,7 +39,7 @@
 }
 
 .timeline::-webkit-scrollbar-track {
-  background: rgba(212, 175, 55, 0.1);
+  background: var(--bg-rgb-primary-blur);
   border-radius: 10px;
   margin: 10px 20px 10px 0;
 }
@@ -52,7 +52,7 @@
 }
 
 .timeline::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #c19b2a, #e6d4a8);
+  background: var(--gradient-primary);
 }
 
 /* Firefox scrollbar */

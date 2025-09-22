@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import './MusicPlayer.css';
-import weddingContent from '../../../config/content';
+import { playlist } from '../../../config/content';
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(true); // Bắt đầu với auto-play
@@ -15,10 +15,7 @@ const MusicPlayer = () => {
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const audioRef = useRef(null);
 
-  const { playlist } = weddingContent.music;
-
   // Chỉ sử dụng audio player cho tất cả tracks
-
   const nextTrack = useCallback(() => {
     const next = (currentTrack + 1) % playlist.length;
     setCurrentTrack(next);

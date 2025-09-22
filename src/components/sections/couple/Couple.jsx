@@ -1,9 +1,8 @@
 import React from 'react';
 import './Couple.css';
-import weddingContent from '../../../config/content';
+import { couple } from '../../../config/content';  
 
 const Couple = () => {
-  const { couple } = weddingContent;
 
   return (
     <section id="couple" className="couple section">

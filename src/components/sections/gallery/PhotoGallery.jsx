@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import './PhotoGallery.css';
-import weddingContent from '../../../config/content';
+import { photoGallery } from '../../../config/content';
 
 const PhotoGallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,7 +34,6 @@ const PhotoGallery = () => {
     return portalTargetRef.current;
   }, []);
 
-  const { photoGallery } = weddingContent;
   const total = photoGallery.total;
 
   // Handle image load event to detect orientation

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import usePreloader from './usePreloader';
-import weddingContent from '../config/content';
+import { preloader } from '../config/content';
 
 const useAppLoader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
-  const { minLoadingTime, fadeOutDuration, assetsToPreload } = weddingContent.preloader;
+  const { minLoadingTime, fadeOutDuration, assetsToPreload } = preloader;
   const { loadingProgress, isPreloading } = usePreloader(assetsToPreload);
 
   useEffect(() => {

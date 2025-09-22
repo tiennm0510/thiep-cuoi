@@ -90,20 +90,20 @@
 }
 
 .grid-container::-webkit-scrollbar-track {
-  background: rgba(212, 175, 55, 0.1);
+  background: var(--bg-rgb-primary);
   border-radius: 10px;
   margin: 10px 0;
 }
 
 .grid-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #d4af37, #f4e4bc);
+  background: var(--gradient-primary);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
 
 .grid-container::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #c19b2a, #e6d4a8);
+  background: var(--gradient-primary);
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -607,7 +607,7 @@
 }
 
 .thumbnail.active {
-  border-color: #d4af37;
+  border-color: var(--color-primary);
   opacity: 1;
   transform: scale(1.05);
 }
@@ -1091,7 +1091,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  color: #d4af37;
+  color: var(--color-primary);
 }
 
 .video-placeholder-content {

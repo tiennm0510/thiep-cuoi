@@ -85,8 +85,8 @@ Chỉnh sửa file `src/components/WeddingEvents.js`:
 
 ### Tùy chỉnh màu sắc
 Chỉnh sửa file `src/index.css` và các file CSS của components:
-- Màu chủ đạo: `#d4af37` (vàng)
-- Màu phụ: `#f4e4bc` (vàng nhạt)
+- Màu chủ đạo: `#eb1248`
+- Màu phụ: `#e06c89`
 
 ### Tùy chỉnh Music Player
 Chỉnh sửa file `src/components/MusicPlayer.js`:

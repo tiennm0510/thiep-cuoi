@@ -67,7 +67,7 @@
   outline: none;
   border-color: var(--color-primary);
   background: var(--color-white);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  box-shadow: var(--shadow-input);
 }
 
 .form-group select option {
@@ -86,7 +86,7 @@
 }
 
 .rsvp-submit:hover {
-  background: linear-gradient(135deg, #c19b2a, #e6d4a8);
+  background: var(--gradient-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-btn);
 }

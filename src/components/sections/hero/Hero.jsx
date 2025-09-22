@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Hero.css';
-import weddingContent from '../../../config/content';
+import { hero, backgroundImages, couple } from '../../../config/content';
 
 const Hero = () => {
-  const { hero, backgroundImages, couple } = weddingContent;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
