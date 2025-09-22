@@ -31,9 +31,10 @@ function App() {
       )}
       {!isLoading && <FloatingFlowers />}
 
+      {!isLoading && <Header />}
+
       {!isLoading && (
         <div className={`main-content ${showContent ? 'fade-in' : ''}`}>
-          <Header />
           <Hero />
           <Couple />
           <WeddingEvents />

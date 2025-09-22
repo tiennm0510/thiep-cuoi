@@ -1,5 +1,6 @@
 /* Main content fade-in animation */
 .main-content {
+  padding-top: 70px;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease-out;
