@@ -7,7 +7,7 @@ const RSVP = () => {
     email: '',
     phone: '',
     attendance: '',
-    guestCount: 1,
+    // guestCount: 1,
     message: ''
   });
 
@@ -22,22 +22,37 @@ const RSVP = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to a backend
-    console.log('RSVP Data:', formData);
-    setIsSubmitted(true);
     
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        attendance: '',
-        guestCount: 1,
-        message: ''
-      });
-    }, 3000);
+    const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdunrpomksI0K--VlKyYLJdouaX1PUq2q8rEtM__dX4ibX60w/formResponse"; 
+    const formDataGoogle = new FormData();
+    formDataGoogle.append("entry.1282721023", formData.name);
+    formDataGoogle.append("entry.1082730938", formData.email);
+    formDataGoogle.append("entry.419437781", formData.phone);
+    formDataGoogle.append("entry.647765111", formData.attendance);
+    formDataGoogle.append("entry.293435162", formData.message);
+
+    fetch(formUrl, {
+      method: "POST",
+      body: formDataGoogle,
+      mode: "no-cors" // Bắt buộc vì Google Form không cho CORS
+    }).then(() => {
+      setIsSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          attendance: '',
+          guestCount: 1,
+          message: ''
+        });
+      }, 3000);
+    }).catch((error) => {
+      console.error("Lỗi gửi Google Form:", err);
+    });
   };
 
   if (isSubmitted) {
@@ -115,11 +130,10 @@ const RSVP = () => {
                   <option value="">Chọn tùy chọn</option>
                   <option value="yes">Có, tôi sẽ tham dự</option>
                   <option value="no">Không, tôi không thể tham dự</option>
-                  <option value="maybe">Có thể</option>
                 </select>
               </div>
               
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="guestCount">Số lượng khách</label>
                 <select
                   id="guestCount"
@@ -133,7 +147,7 @@ const RSVP = () => {
                   <option value={4}>4 người</option>
                   <option value={5}>5 người trở lên</option>
                 </select>
-              </div>
+              </div> */}
               
               <div className="form-group">
                 <label htmlFor="message">Lời nhắn gửi đến cặp đôi</label>

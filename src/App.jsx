@@ -43,7 +43,7 @@ function App() {
             <PhotoGallery />
           </Suspense>
           <GiftBox />
-          {/* <RSVP /> */}
+          <RSVP />
           <Footer />
         </div>
       )}

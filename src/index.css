@@ -46,7 +46,7 @@
   /* Shadows */
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
   --shadow-card-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-  --shadow-btn: 0 5px 15px rgba(212, 175, 55, 0.4);
+  --shadow-btn: 0 5px 15px rgba(212, 55, 76, 0.4);
   --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
   --shadow-groom: 0 10px 30px hsla(212, 75%, 58%, 0.5);
   --shadow-bride: 0 10px 30px rgba(233, 30, 99, 0.3);
