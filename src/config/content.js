@@ -236,7 +236,7 @@ export const navigation = [
     { id: "events", label: "Sự kiện", href: "#events" },
     { id: "gallery", label: "Album ảnh", href: "#gallery" },
     { id: "giftbox", label: "Hộp mừng cưới", href: "#giftbox" },
-    // { id: "rsvp", label: "Lời chúc", href: "#rsvp" }
+    { id: "rsvp", label: "Xác nhận tham dự", href: "#rsvp" }
 ];
 
 export const footer = {

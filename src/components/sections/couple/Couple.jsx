@@ -41,10 +41,6 @@ const Couple = () => {
             </div>
           </div>
         </div>
-
-        <div className="rsvp-button">
-          <button className="btn" onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}>Xác nhận tham dự</button>
-        </div>
       </div>
     </section>
   );
