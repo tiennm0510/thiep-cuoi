@@ -93,7 +93,7 @@ export const loveStories = {
         name: "meeting-family",
         date: "Tháng 1, 2025",
         title: "Lần đầu ra mắt gia đình",
-        description: "Một ngày sau Tết dương lịch. Anh và em quyết định sẽ qua nhà hai đữa để xin phép được tìm hiểu nhau. Dù có chút lo lắng, nhưng mọi chuyện diễn ra rất suôn sẻ và ấm áp.",
+        description: "Một ngày sau Tết dương lịch. Anh quyết định sẽ qua nhà gặp mẹ em, để xin phép được tìm hiểu em. Dù có chút lo lắng, nhưng mọi chuyện diễn ra rất suôn sẻ và ấm áp.",
       },
       {
         id: 5,
@@ -202,30 +202,8 @@ export const preloader = {
     fadeOutDuration: 500, // 500ms fade out
     assetsToPreload: [
       // Hero backgrounds
-      { key: 'hero-bg', type: 'image', url: '/images/hero-bg/bg.jpg' },
       { key: 'hero-bg-1', type: 'image', url: '/images/hero-bg/1.jpg' },
       { key: 'hero-bg-2', type: 'image', url: '/images/hero-bg/2.jpg' },
-
-      // Couple photos
-      { key: 'bride', type: 'image', url: '/images/bride.jpg' },
-      { key: 'groom', type: 'image', url: '/images/groom.jpg' },
-
-      // Story photos (một số ảnh quan trọng)
-      { key: 'story-1', type: 'image', url: '/images/story/first-meeting.jpg' },
-      { key: 'story-2', type: 'image', url: '/images/story/first-date.jpg' },
-
-      // Gallery photos (một số ảnh đầu tiên)
-      { key: 'gallery-1', type: 'image', url: '/images/gallery/4.jpg' },
-      { key: 'gallery-2', type: 'image', url: '/images/gallery/6.jpg' },
-      { key: 'gallery-3', type: 'image', url: '/images/gallery/8.jpg' },
-
-      // Music
-      { key: 'music-1', type: 'audio', url: '/music/i-do.mp3' },
-      { key: 'music-2', type: 'audio', url: '/music/mot-doi.mp3' },
-
-      // QR codes
-      { key: 'qr-bride', type: 'image', url: '/images/qr-code/bride.jpeg' },
-      { key: 'qr-groom', type: 'image', url: '/images/qr-code/groom.jpeg' },
     ]
 }
 

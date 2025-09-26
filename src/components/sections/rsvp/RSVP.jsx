@@ -7,7 +7,7 @@ const RSVP = () => {
     email: '',
     phone: '',
     attendance: '',
-    // guestCount: 1,
+    friendGroup: '',
     message: ''
   });
 
@@ -28,6 +28,7 @@ const RSVP = () => {
     formDataGoogle.append("entry.1282721023", formData.name);
     formDataGoogle.append("entry.1082730938", formData.email);
     formDataGoogle.append("entry.419437781", formData.phone);
+    formDataGoogle.append("entry.1608258890", formData.friendGroup);
     formDataGoogle.append("entry.647765111", formData.attendance);
     formDataGoogle.append("entry.293435162", formData.message);
 
@@ -46,7 +47,7 @@ const RSVP = () => {
           email: '',
           phone: '',
           attendance: '',
-          guestCount: 1,
+          friendGroup: '',
           message: ''
         });
       }, 3000);
@@ -116,6 +117,21 @@ const RSVP = () => {
                   onChange={handleChange}
                   placeholder="Nhập số điện thoại của bạn"
                 />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="friendGroup">Bạn của ai? *</label>
+                <select
+                  id="friendGroup"
+                  name="friendGroup"
+                  value={formData.friendGroup}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Chọn tùy chọn</option>
+                  <option value="Chú rể">Chú rể</option>
+                  <option value="Cô dâu">Cô dâu</option>
+                </select>
               </div>
               
               <div className="form-group">

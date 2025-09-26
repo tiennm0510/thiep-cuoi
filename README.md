@@ -1,8 +1,20 @@
-# Wedding Website Template
+# Thiệp Cưới Điện Tử - Mạnh Tiến & Linh Giang
 
-Một template trang web cưới đẹp và responsive được xây dựng bằng React.js, clone từ trang web mẫu.
+Trang web thiệp cưới điện tử được xây dựng bằng React và Vite, với giao diện đẹp và responsive, tối ưu cho trải nghiệm người dùng trên mọi thiết bị.
+
+[Demo Link](#) *(Cập nhật sau khi triển khai)*
 
 ## ✨ Tính năng
+
+- 📱 Responsive trên mọi thiết bị (mobile, tablet, desktop)
+- 🎵 Trình phát nhạc với danh sách nhạc cưới
+- 🖼️ Album ảnh cưới với hiệu ứng đẹp mắt
+- 📅 Chi tiết các sự kiện cưới với bản đồ chỉ đường
+- 💑 Timeline câu chuyện tình yêu
+- 📝 Form RSVP tích hợp với Google Forms
+- 💝 QR Code mừng cưới cho cô dâu và chú rể
+- 🌸 Hiệu ứng hoa rơi trang trí
+- 🔄 Preloader với tối ưu tải trang
 
 - **Responsive Design**: Tối ưu cho mọi thiết bị (desktop, tablet, mobile)
 - **Modern UI/UX**: Giao diện đẹp với animation mượt mà
@@ -18,17 +30,27 @@ Một template trang web cưới đẹp và responsive được xây dựng bằ
 ## 🚀 Cài đặt và chạy
 
 ### Yêu cầu hệ thống
-- Node.js (phiên bản 14 trở lên)
+- Node.js 20.19.4 (khuyến nghị sử dụng nvm để quản lý phiên bản Node)
 - npm hoặc yarn
 
 ### Cài đặt dependencies
 ```bash
+# Clone repository
+git clone https://github.com/tiennm0510/thiep-cuoi.git
+cd thiep-cuoi
+
+# Cài đặt node_modules
 npm install
+
+# HOẶC sử dụng yarn
+yarn install
 ```
 
 ### Chạy development server
 ```bash
-npm start
+npm run dev
+# HOẶC
+yarn dev
 ```
 
 Ứng dụng sẽ chạy tại `http://localhost:3000`
@@ -36,25 +58,41 @@ npm start
 ### Build cho production
 ```bash
 npm run build
+# HOẶC
+yarn build
+```
+
+### Preview bản build
+```bash
+npm run preview
+# HOẶC
+yarn preview
 ```
 
 ## 📁 Cấu trúc project
 
 ```
-src/
-├── components/          # Các React components
-│   ├── Header.js       # Header với navigation
-│   ├── Hero.js         # Section hero chính
-│   ├── Couple.js       # Thông tin cặp đôi
-│   ├── LoveStory.js    # Timeline câu chuyện tình yêu
-│   ├── WeddingEvents.js # Thông tin sự kiện cưới
-│   ├── Bridesmaids.js  # Phù dâu & phù rể
-│   ├── PhotoGallery.js # Album hình cưới
-│   ├── RSVP.js         # Form xác nhận tham dự
-│   ├── MusicPlayer.js  # Trình phát nhạc
-│   └── Footer.js       # Footer
-├── App.js              # Component chính
-├── index.js            # Entry point
+thiep-cuoi/
+├── src/                # Mã nguồn chính
+│   ├── components/     # Các React components
+│   │   ├── common/    # Components dùng chung
+│   │   ├── sections/  # Các section chính của trang
+│   │   └── shared/    # UI components chia sẻ
+│   ├── config/        # Cấu hình và nội dung
+│   │   └── content.js # Nội dung chính của trang
+│   ├── hooks/         # Custom React hooks
+│   ├── App.jsx        # Component chính
+│   └── index.jsx      # Entry point
+│
+├── public/            # Static assets
+│   ├── images/        # Thư mục hình ảnh
+│   │   ├── gallery/   # Album ảnh cưới (30 ảnh)
+│   │   ├── hero-bg/   # Ảnh nền hero section
+│   │   ├── music-cover/ # Ảnh cover bài hát
+│   │   └── qr-code/   # QR code mừng cưới
+│   └── music/         # File nhạc cưới
+│
+└── build/            # Thư mục build production
 └── index.css           # Global styles
 
 public/
@@ -83,17 +121,33 @@ Chỉnh sửa file `src/components/WeddingEvents.js`:
 - Thêm/bớt sự kiện
 - Tích hợp calendar (cần thêm thư viện)
 
-### Tùy chỉnh màu sắc
-Chỉnh sửa file `src/index.css` và các file CSS của components:
-- Màu chủ đạo: `#eb1248`
-- Màu phụ: `#e06c89`
+## 🎨 Tùy chỉnh
 
-### Tùy chỉnh Music Player
-Chỉnh sửa file `src/components/MusicPlayer.js`:
-- Thay đổi playlist trong mảng `playlist`
-- Cập nhật đường dẫn file nhạc trong `src`
-- Thay đổi hình ảnh cover trong `cover`
-- Điều chỉnh volume mặc định
+### Nội dung trang web
+Chỉnh sửa file `src/config/content.js` để thay đổi:
+- Thông tin cô dâu chú rể
+- Thời gian và địa điểm các sự kiện cưới
+- Timeline câu chuyện tình yêu
+- Thông tin tài khoản mừng cưới
+- Nội dung form RSVP
+- Danh sách nhạc và các cấu hình khác
+
+### Giao diện và màu sắc
+Chỉnh sửa file `src/index.css` và các file CSS trong components:
+- Màu chủ đạo: `#eb1248` (có thể thay đổi trong file CSS)
+- Màu phụ: `#e06c89`
+- Font chữ và các thuộc tính CSS khác
+
+### Hình ảnh
+- Album cưới: Thay thế các ảnh trong `/public/images/gallery/`
+- Ảnh nền: Cập nhật trong `/public/images/hero-bg/`
+- Ảnh cô dâu chú rể: Thay thế trong `/public/images/`
+- QR code: Cập nhật trong `/public/images/qr-code/`
+
+### Nhạc nền
+- Thêm file nhạc vào `/public/music/`
+- Thêm ảnh cover vào `/public/images/music-cover/`
+- Cập nhật danh sách nhạc trong `content.js`
 
 ## 📸 Hình ảnh
 
@@ -130,37 +184,50 @@ Thêm file nhạc vào thư mục `public/music/`:
 ### Analytics
 Thêm Google Analytics hoặc Facebook Pixel để theo dõi traffic.
 
-## 📱 Responsive Breakpoints
+## 📱 Responsive Design
 
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
+Website được thiết kế responsive cho mọi thiết bị:
+- 📱 Mobile: < 768px
+- 📲 Tablet: 768px - 1024px
+- 💻 Desktop: > 1024px
 
-## 🌐 Deployment
+## 🌐 Triển khai
+
+### Render (Khuyến nghị)
+1. Fork repository này
+2. Kết nối với Render
+3. Render sẽ tự động deploy khi có thay đổi
+4. Cấu hình đã có sẵn trong `render.yaml`
+
+### Vercel
+1. Fork repository này
+2. Tạo tài khoản trên Vercel
+3. Import project từ GitHub
+4. Vercel sẽ tự động nhận diện cấu hình và deploy
 
 ### Netlify
 1. Build project: `npm run build`
-2. Deploy thư mục `build/` lên Netlify
+2. Deploy thư mục `build/`
+3. Cấu hình redirect trong `_redirects`
 
-### Vercel
-1. Kết nối GitHub repository
-2. Deploy tự động
+## 💝 Đóng góp
 
-### GitHub Pages
-1. Cài đặt `gh-pages`: `npm install --save-dev gh-pages`
-2. Thêm script vào `package.json`:
-   ```json
-   "homepage": "https://username.github.io/wedding-template",
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build"
-   }
-   ```
-3. Deploy: `npm run deploy`
+Mọi đóng góp đều được chào đón! Vui lòng:
+1. Fork project
+2. Tạo branch mới (`git checkout -b feature/new-feature`)
+3. Commit thay đổi (`git commit -am 'Add new feature'`)
+4. Push lên branch (`git push origin feature/new-feature`)
+5. Tạo Pull Request
 
-## 📄 License
+## 📄 Giấy phép
 
-MIT License - Sử dụng tự do cho mục đích cá nhân và thương mại.
+MIT License - Tự do sử dụng cho mục đích cá nhân và thương mại.
+
+## 🙏 Cảm ơn
+
+- Cảm ơn các thư viện open source đã sử dụng
+- Cảm ơn cộng đồng React Việt Nam
+- Đặc biệt cảm ơn bạn đã quan tâm đến dự án
 
 ## 🤝 Contributing
 
