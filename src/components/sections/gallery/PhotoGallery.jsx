@@ -361,22 +361,17 @@ const PhotoGallery = () => {
             <div className="divider"></div>
             <div className="video-container">
               {showVideo ? (
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/TipjV7EG4tQ?si=bZ52hLmV7-m9tr6C"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen>
-                </iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z2tyZLgTENU?si=qlh4kZ3M8gHd0dz6"
+                          title="YouTube video player"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               ) : (
-                <div className="video-placeholder">
-                  <div className="video-placeholder-content">
-                    <i className="fab fa-youtube"></i>
-                    <p>Video đang tải...</p>
+                  <div className="video-placeholder">
+                      <div className="video-placeholder-content">
+                          <i className="fab fa-youtube"></i>
+                          <p>Video đang tải...</p>
+                      </div>
                   </div>
-                </div>
               )}
             </div>
           </div>
