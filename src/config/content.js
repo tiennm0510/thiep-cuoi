@@ -86,7 +86,7 @@ export const loveStories = {
         name: "confession",
         date: "Tháng 6, 2024",
         title: "Lời tỏ tình",
-        description: "Một buổi tối đầu thu, gió mùa hiu hiu thôi. Anh đã ngỏ lời yêu em dưới ánh đèn vàng ấm áp. Em đã đồng ý và từ đó, chúng tôi chính thức trở thành một cặp đôi.",
+        description: "Một buổi tối đầu thu, gió mùa nhẹ nhàng mang từng đợt hơi lạnh về . Anh đã ngỏ lời yêu em dưới ánh đèn vàng ấm áp. Em đã đồng ý và từ đó, chúng tôi chính thức trở thành một cặp đôi.",
       },
       {
         id: 4,
