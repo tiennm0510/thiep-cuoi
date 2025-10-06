@@ -12,6 +12,7 @@ import FloatingFlowers from './components/shared/ui/FloatingFlowers';
 import LoadingScreen from './components/shared/loading/LoadingScreen';
 import ComponentLoading from './components/shared/loading/ComponentLoading';
 import useAppLoader from './hooks/useAppLoader';
+import Wish from './components/shared/ui/Wish';
 
 // Lazy load heavy components
 const PhotoGallery = React.lazy(() => import('./components/sections/gallery/PhotoGallery'));
@@ -32,6 +33,8 @@ function App() {
       {!isLoading && <FloatingFlowers />}
 
       {!isLoading && <Header />}
+
+      {!isLoading && <Wish />}
 
       {!isLoading && (
         <div className={`main-content ${showContent ? 'fade-in' : ''}`}>
